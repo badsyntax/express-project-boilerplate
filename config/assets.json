@@ -1,0 +1,16 @@
+{
+  "development": {
+    "scripts": [
+      "public/src/components/jquery/jquery.js",
+      "public/src/components/requirejs/require.js",
+      "public/src/js/app.js"
+    ],
+    "css": [
+      "public/css/styles.css"
+    ]
+  },
+  "production": {
+    "script": "public/build/js/scripts.js",
+    "css": "public/build/css/styles.css"
+  }
+}
