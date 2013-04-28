@@ -1,3 +1,5 @@
 node_modules
 public/src/components
+public/src/css/styles.css
 public/build
+.sass-cache

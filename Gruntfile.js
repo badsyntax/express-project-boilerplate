@@ -17,12 +17,27 @@ module.exports = function(grunt) {
         dest: assets.production.script
       }
     },
-    foo: {}
+    compass: {
+      dist: {
+        options: {
+          sassDir: 'public/src/scss',
+          cssDir: 'public/build/css',
+          environment: 'development'
+        }
+      },
+      dev: {
+        options: {
+          sassDir: 'public/src/scss',
+          cssDir: 'public/src/css'
+        }
+      }
+    }
   });
 
-  // Load the plugin that provides the "uglify" task.
+  // Load the task plugins
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-compass');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify']);
+  grunt.registerTask('default', ['compass','uglify']);
 };
