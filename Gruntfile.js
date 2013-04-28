@@ -22,22 +22,68 @@ module.exports = function(grunt) {
         options: {
           sassDir: 'public/src/scss',
           cssDir: 'public/build/css',
-          environment: 'development'
+          environment: 'production'
         }
       },
       dev: {
         options: {
           sassDir: 'public/src/scss',
-          cssDir: 'public/src/css'
+          cssDir: 'public/build/css'
         }
+      }
+    },
+    concat: {
+      options: {
+        stripBanners: true,
+        banner: [
+          '/*! <%= pkg.name %> - v<%= pkg.version %> - ',
+          '<%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        ].join('')
+      },
+      dist: {
+        src: ['public/build/css/styles.css'],
+        dest: 'public/build/css/styles.css'
+      }
+    },
+    jshint: {
+      files: [
+        'Gruntfile.js',
+        'public/src/js/main.js',
+        'public/src/js/modules/**/*.js'
+      ],
+      options: {
+        globals: {
+          jQuery: true,
+          console: true,
+          module: true,
+          document: true
+        }
+      }
+    },
+    jasmine : {
+      src : assets.development.scripts,
+      options : {
+        specs : 'spec/**/*.js'
       }
     }
   });
 
   // Load the task plugins
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-jasmine');
 
-  // Default task(s).
-  grunt.registerTask('default', ['compass','uglify']);
+  // Testing task
+  grunt.registerTask('test', ['jshint', 'jasmine']);
+
+  // Default tasks
+  grunt.registerTask('default', [
+    'jshint',
+    'jasmine',
+    'compass',
+    // 'uglify',
+    'concat'
+  ]);
 };

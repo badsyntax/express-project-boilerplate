@@ -2,7 +2,8 @@
   "name": "project-boilerplate",
   "version": "0.0.1",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "grunt test"
   },
   "dependencies": {
     "express": "3.2.0"
@@ -10,6 +11,9 @@
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-uglify": "~0.1",
-    "grunt-contrib-compass": "0.2"
+    "grunt-contrib-compass": "0.2",
+    "grunt-contrib-concat": "0.3",
+    "grunt-contrib-jshint": "0.1",
+    "grunt-contrib-jasmine": "0.3"
   }
 }
