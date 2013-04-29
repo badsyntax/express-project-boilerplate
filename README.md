@@ -1,24 +1,43 @@
 express-project-boilerplate
 ===========================
 
-An express/requirejs/grunt/bower project boilerplate
+A starter application that uses the following technologies:
 
-Installation:
+* nodejs
+* express
+* requirejs
+* grunt
+* bower
+* jasmine
+* sass
+* jquery
+* uglifyjs
+* knockout
 
-First, ensure you have all the following software installed:
+## Installation:
+
+First, ensure you have all the following software installed on your system:
 
 * nodejs
 * npm
 * bower
-* grunt
 * Sass
 * compass
 
-Sublime Text config:
+Then run install.sh
 
-* No trailing whitespace
+## Sublime Text config:
 
-Sublime text packages:
+    {
+      "font_size": 11,
+      "tab_size": 2,
+      "translate_tabs_to_spaces": true,
+      "trim_automatic_white_space": true,
+      "trim_trailing_white_space_on_save": true,
+      "word_wrap": false
+    }
+
+## Sublime text packages:
 
 * jsFormat (to format your javascript)
 * Sass (for syntax highlighting)
