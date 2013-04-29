@@ -90,7 +90,7 @@ module.exports = function(grunt) {
     'jshint',
     'jasmine',
     'compass',
-    // 'uglify',
+    'uglify',
     'concat'
   ]);
 };
