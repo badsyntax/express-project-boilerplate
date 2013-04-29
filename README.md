@@ -12,6 +12,7 @@ A starter application that uses the following technologies:
 * sass
 * jquery
 * uglifyjs
+* handlebars
 * knockout
 
 ## Installation:
