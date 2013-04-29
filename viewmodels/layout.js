@@ -5,12 +5,12 @@ function LayoutViewModel() {
 }
 require('util').inherits(LayoutViewModel, ViewModel);
 
-LayoutViewModel.prototype.head = function(callback) {
-  ViewModel.factory('fragments/head').render(callback);
+LayoutViewModel.prototype.head = function() {
+  return ViewModel.factory('fragments/head').render();
 };
 
-LayoutViewModel.prototype.scripts = function(callback) {
-  ViewModel.factory('fragments/scripts').render(callback);
+LayoutViewModel.prototype.scripts = function() {
+  return ViewModel.factory('fragments/scripts').render();
 };
 
 module.exports = exports = LayoutViewModel;
