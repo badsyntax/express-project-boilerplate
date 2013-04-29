@@ -20,11 +20,15 @@ First, ensure you have all the following software installed on your system:
 
 * nodejs
 * npm
-* bower
+* bower (`npm install -g bower`)
 * Sass
 * compass
 
-Then run install.sh
+Next, clone the project from github: `git clone git://github.com/badsyntax/express-project-boilerplate.git`
+
+Then run `install.sh` or `install.bat`
+
+Run `grunt` to run all grunt tasks.
 
 ## Grunt tasks
 
