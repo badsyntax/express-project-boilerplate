@@ -24,6 +24,8 @@ First, ensure you have all the following software installed on your system:
 * Sass
 * compass
 
+Next, clone the project from github: `git clone git://github.com/badsyntax/express-project-boilerplate.git`
+
 Then run install.sh
 
 ## Grunt tasks
