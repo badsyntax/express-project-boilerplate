@@ -1,5 +1,4 @@
-express-project-boilerplate
-===========================
+# express-project-boilerplate
 
 A starter application that uses the following technologies:
 
@@ -17,21 +16,24 @@ A starter application that uses the following technologies:
 
 ## Installation:
 
-First, ensure you have all the following software installed on your system:
+1. Ensure you have all the following software installed on your system:
+    * nodejs
+    * npm
+    * bower (`npm install -g bower`)
+    * Sass
+    * compass
+2. Clone the project from github: `git clone git://github.com/badsyntax/express-project-boilerplate.git`
+3. Run `install.sh` or `install.bat`
 
-* nodejs
-* npm
-* bower (`npm install -g bower`)
-* Sass
-* compass
+## Developing
 
-Next, clone the project from github: `git clone git://github.com/badsyntax/express-project-boilerplate.git`
-
-Then run `install.sh` or `install.bat`
-
-Run `grunt` to run all grunt tasks.
+* Run the `grunt watch` task while developing, this will compile your sass when you make changes.
+* Run `node app` to start up the applicaiton.
+* The application will run in 'developement' mode when running from localhost, and 'production' mode when not running on localhost. 
 
 ## Grunt tasks
+
+Run `grunt` to run all grunt tasks.
 
 * grunt watch (for watching and compiling your sass files)
 * grunt test
