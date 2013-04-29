@@ -28,7 +28,7 @@ module.exports = function(grunt) {
       dev: {
         options: {
           sassDir: 'public/src/scss',
-          cssDir: 'public/build/css'
+          cssDir: 'public/src/css'
         }
       }
     },
@@ -65,6 +65,12 @@ module.exports = function(grunt) {
       options : {
         specs : 'spec/**/*.js'
       }
+    },
+    watch: {
+      scss: {
+        files: ['public/src/scss/**/*.scss'],
+        tasks: ['compass']
+      }
     }
   });
 
@@ -74,6 +80,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Testing task
   grunt.registerTask('test', ['jshint', 'jasmine']);

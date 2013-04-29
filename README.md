@@ -26,6 +26,15 @@ First, ensure you have all the following software installed on your system:
 
 Then run install.sh
 
+## Grunt tasks
+
+* grunt watch (for watching and compiling your sass files)
+* grunt test
+* grunt compass
+* grunt uglify
+* grunt jshint
+* grunt jasmine
+
 ## Sublime Text config:
 
     {

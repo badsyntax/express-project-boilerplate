@@ -5,7 +5,7 @@ body {
 
 /* Example module file */
 /* line 3, ../scss/modules/_example.scss */
-.mymodule {
+.example-module {
   font-size: 20px;
-  color: red;
+  color: black;
 }
