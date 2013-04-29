@@ -20,7 +20,7 @@ First, ensure you have all the following software installed on your system:
 
 * nodejs
 * npm
-* bower
+* bower (`npm install -g bower`)
 * Sass
 * compass
 
