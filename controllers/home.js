@@ -1,5 +1,6 @@
 var Controller = require('../lib/controller');
 var ViewModel = require('../lib/viewmodel');
+var q = require('q');
 
 function HomeController() {
   Controller.apply(this, arguments);
