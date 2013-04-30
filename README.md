@@ -29,7 +29,7 @@ A starter application that uses the following technologies:
 
 * Run the `grunt watch` task while developing, this will compile your sass when you make changes.
 * Run `node app` to start up the applicaiton.
-* The application will run in 'developement' mode when running from localhost, and 'production' mode when not running on localhost. 
+* The application will run in 'developement' mode when running from localhost, and 'production' mode when not running on localhost.
 
 ## Grunt tasks
 
@@ -41,6 +41,11 @@ Run `grunt` to run all grunt tasks.
 * grunt uglify
 * grunt jshint
 * grunt jasmine
+
+## MVC
+
+THe express backend uses custom Model, View, ViewModel and Controller classes. A router handler is used to
+route requests to controllers. Controllers create the viewmodels, and handle user input.
 
 ## Sublime Text config:
 
