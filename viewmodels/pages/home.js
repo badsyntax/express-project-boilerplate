@@ -7,22 +7,22 @@ function HomeViewModel() {
     people: this.getPeople()
   });
 }
+
 require('util').inherits(HomeViewModel, ViewModel);
 
 HomeViewModel.prototype.getPeople = function() {
 
-    var deferred = q.defer();
+  var deferred = q.defer();
 
-    setTimeout(function() {
-        deferred.resolve([
-            {
-                name: 'Richard',
-                surname: 'Willis'
-            }
-        ]);
-    }, 400);
+  setTimeout(function() {
+    deferred.resolve([{
+        name: 'Richard',
+        surname: 'Willis'
+      }
+    ]);
+  }, 400);
 
-    return deferred.promise;
+  return deferred.promise;
 };
 
 module.exports = exports = HomeViewModel;

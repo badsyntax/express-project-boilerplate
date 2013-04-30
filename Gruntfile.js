@@ -60,16 +60,54 @@ module.exports = function(grunt) {
         }
       }
     },
-    jasmine : {
-      src : assets.development.scripts,
-      options : {
-        specs : 'spec/**/*.js'
+    jasmine: {
+      src: assets.development.scripts,
+      options: {
+        specs: 'spec/**/*.js'
       }
     },
     watch: {
       scss: {
         files: ['public/src/scss/**/*.scss'],
         tasks: ['compass']
+      }
+    },
+    'sass-convert': {
+      files: {
+        src: ['public/src/scss/**/*.scss']
+      },
+      options: {
+        indent: 2
+      }
+    },
+    jsbeautifier: {
+      files: [
+        '*.js',
+        '*.json',
+        'public/src/js/**/*.js',
+        'public/tests/**/*.js',
+        'config/**/*.json',
+        'controllers/**/*.js',
+        'lib/**/*.js',
+        'routes/**/*.js',
+        'viewmodels/**/*.js',
+      ],
+      options: {
+        indent_size: 2,
+        indent_char: " ",
+        indent_level: 0,
+        indent_with_tabs: false,
+        preserve_newlines: true,
+        max_preserve_newlines: 2,
+        jslint_happy: false,
+        brace_style: 'collapse',
+        keep_array_indentation: true,
+        keep_function_indentation: false,
+        space_before_conditional: true,
+        eval_code: false,
+        indent_case: false,
+        wrap_line_length: 80,
+        unescape_strings: false
       }
     }
   });
@@ -81,9 +119,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-jsbeautifier');
+  grunt.loadNpmTasks('grunt-sass-convert');
 
-  // Testing task
+  // Custom tasks
   grunt.registerTask('test', ['jshint', 'jasmine']);
+  grunt.registerTask('format', ['jsbeautifier', 'sass-convert']);
 
   // Default tasks
   grunt.registerTask('default', [

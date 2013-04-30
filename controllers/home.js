@@ -8,6 +8,7 @@ function HomeController() {
     title: 'Home'
   });
 }
+
 require('util').inherits(HomeController, Controller);
 
 HomeController.prototype.actionIndex = function() {

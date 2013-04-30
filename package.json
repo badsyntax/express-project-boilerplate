@@ -6,7 +6,9 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "express": "3.2.0"
+    "express": "3.2.0",
+    "hbs": "2.1",
+    "q": "0.9"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -16,7 +18,7 @@
     "grunt-contrib-jshint": "0.1",
     "grunt-contrib-jasmine": "0.3",
     "grunt-contrib-watch": "0.2",
-    "hbs": "2.1",
-    "q": "0.9"
+    "grunt-jsbeautifier": "0.1",
+    "grunt-sass-convert": "0.1"
   }
 }

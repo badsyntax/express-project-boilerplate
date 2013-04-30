@@ -41,6 +41,9 @@ Run `grunt` to run all grunt tasks.
 * grunt uglify
 * grunt jshint
 * grunt jasmine
+* grunt format
+* grunt jsbeautifier
+* grunt sass-convert
 
 ## MVC
 
