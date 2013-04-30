@@ -44,8 +44,14 @@ Run `grunt` to run all grunt tasks.
 
 ## MVC
 
-THe express backend uses custom Model, View, ViewModel and Controller classes. A router handler is used to
-route requests to controllers. Controllers create the viewmodels, and handle user input.
+This system extends express to provide a more verbose and automated MVC system. A router handler is used to
+route requests to controllers. Controllers create the ViewModels and handle user input. ViewModels retrieve data
+models and provide that data to the views.
+
+## Templating
+
+You can retrieve data in the ViewModels asyncronously via Q promises.
+Handlebars templating is used to display the data in the views. Generally you want to use a ViewModel for every view.
 
 ## Sublime Text config:
 
