@@ -2,19 +2,21 @@
 
 A starter application that uses the following technologies:
 
-* nodejs
-* express
-* grunt
-* requirejs
-* bower
-* jasmine
-* sass
-* jquery
-* uglifyjs
-* handlebars
-* knockout
-* director
-* bootstrap
+* [nodejs](http://nodejs.org/)
+* [express](http://expressjs.com/)
+* [grunt](http://gruntjs.com/)
+* [requirejs](http://requirejs.org/)
+* [bower](http://bower.io/)
+* [jasmine](http://pivotal.github.io/jasmine/)
+* [Q](http://documentup.com/kriskowal/q)
+* [uglifyjs](https://github.com/mishoo/UglifyJS)
+* [handlebars](http://handlebarsjs.com/)
+* [sass](http://sass-lang.com/)
+* [compass](http://compass-style.org/)
+* [jquery](http://jquery.com/)
+* [knockoutjs](http://knockoutjs.com/)
+* [director](https://github.com/flatiron/director)
+* [bootstrap](http://twitter.github.io/bootstrap/)
 
 ## Installation:
 
@@ -31,7 +33,7 @@ A starter application that uses the following technologies:
 ## Developing
 
 * Run the `grunt watch` task while developing, this will compile your sass when you make changes.
-* Run `nodemon app` to start up the applicaiton.
+* Run `nodemon app.js` to start up the applicaiton.
 * The application will run in 'developement' mode when running from localhost, and 'production' mode when not running on localhost.
 
 ## Grunt tasks
