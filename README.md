@@ -153,9 +153,3 @@ You can retrieve data in the ViewModels asyncronously via Q promises.
       "trim_trailing_white_space_on_save": true,
       "word_wrap": false
     }
-
-## Sublime text packages:
-
-* jsFormat (to format your javascript)
-* Sass (for syntax highlighting)
-* SassBeautify (to format your Sass)
