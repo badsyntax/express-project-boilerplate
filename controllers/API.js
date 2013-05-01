@@ -8,8 +8,24 @@ function ControllerAPI() {
 
 require('util').inherits(ControllerAPI, ControllerREST);
 
+// GET request (list)
 ControllerAPI.prototype.actionIndex = function() {
-    this.sendResponse(200, 'text/html', 'Hello, world');
+  this.sendResponse(200, 'text/html', 'Hello, world');
+};
+
+// POST request (create)
+ControllerAPI.prototype.actionPost = function() {
+  this.sendResponse(200, 'text/html', 'Hello, world');
+};
+
+// PUT request (update)
+ControllerAPI.prototype.actionUpdate = function() {
+  this.sendResponse(200, 'text/html', 'Hello, world');
+};
+
+// DELETE request (delete)
+ControllerAPI.prototype.actionDelete = function() {
+  this.sendResponse(200, 'text/html', 'Hello, world');
 };
 
 module.exports = ControllerAPI;
