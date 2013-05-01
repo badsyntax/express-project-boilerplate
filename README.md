@@ -1,6 +1,6 @@
 # express-project-boilerplate
 
-A starter project for building a modern JavaScript web application. This project uses the following technologies:  
+A starter project for building a modern JavaScript web application. This project uses the following technologies:
 
 * [nodejs](http://nodejs.org/)
 * [npm](https://npmjs.org/)
@@ -32,7 +32,7 @@ A starter project for building a modern JavaScript web application. This project
 3. Install node modules: `npm install`
 4. Insall client-side components: `bower install`
 5. Compile the default Sass: `grunt compass`
-6. Compress and concat the default asset files: `grunt uglify && grunt concat` 
+6. Compress and concat the default asset files: `grunt uglify && grunt concat`
 7. That's all, now run `node app.js` to boot up the basic application
 
 ## Running and developing the application
@@ -43,9 +43,9 @@ A starter project for building a modern JavaScript web application. This project
 
 ### Application environment
 
-The application will perform different tasks based on the application environment. 
+The application will perform different tasks based on the application environment.
 
-You can access the environment value by calling `app.get('env')` which will return either 
+You can access the environment value by calling `app.get('env')` which will return either
 'development' or 'production'.
 
 By default, the application will run in development mode, but you can use the following command to test the application
@@ -75,7 +75,7 @@ models and provide that data to the views.
 
 ### Routing
 
-Routes map urls to controllers. The default route will try to map all requests to the relevant controllers. 
+Routes map urls to controllers. The default route will try to map all requests to the relevant controllers.
 Here's an example of this catch-all default route:
 
 ```javascript
@@ -87,7 +87,7 @@ Here's an example of this catch-all default route:
   }
 }
 ```
-    
+
 Here's an example of a custom route:
 
 ```javascript
@@ -100,7 +100,7 @@ Here's an example of a custom route:
 ### Controller usage
 
 Controllers will handle the request and user input, as well as creating ViewModels. For requests that return markup,
-use the 'ControllerLayout', which will create a 'layout' viewmodel, and all other ViewModels are added to this 
+use the 'ControllerLayout', which will create a 'layout' viewmodel, and all other ViewModels are added to this
 layout ViewModel.
 
 Here's an example of a custom 'home' controller:
@@ -113,14 +113,14 @@ function HomeController() {
   ControllerLayout.apply(this, arguments);
   this.layout.setGlobalData({
     title: 'Home'
-  }); 
+  });
 }
 
 require('util').inherits(HomeController, ControllerLayout);
 
 HomeController.prototype.actionIndex = function() {
   this.layout.setData({
-    body: ViewModel.factory('pages/home').render()
+    body: ViewModel.factory(this, 'pages/home').render()
   });
 };
 ````
@@ -129,7 +129,7 @@ TODO: show example of how to use the ControllerREST
 
 ### ViewModel usage
 
-Generally you want to use a ViewModel for every view. 
+Generally you want to use a ViewModel for every view.
 
 Here's an example of a basic ViewModel. You need to set the view data using the 'setData' method:
 
