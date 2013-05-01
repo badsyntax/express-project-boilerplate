@@ -13,11 +13,11 @@ function LayoutViewModel() {
 require('util').inherits(LayoutViewModel, ViewModel);
 
 LayoutViewModel.prototype.getScripts = function() {
-  return ViewModel.factory('fragments/scripts').render();
+  return ViewModel.factory(this.controller, 'fragments/scripts').render();
 };
 
 LayoutViewModel.prototype.getStyles = function() {
-  return ViewModel.factory('fragments/styles').render()
+  return ViewModel.factory(this.controller, 'fragments/styles').render()
 };
 
 module.exports = exports = LayoutViewModel;

@@ -3,6 +3,8 @@ var assets = require('../../config/assets.json');
 
 function StylesViewModel() {
   ViewModel.apply(this, arguments);
+
+  this.env = this.controller.app.get('env');
   this.setData({
     styles: this.getStyles()
   });
@@ -11,9 +13,9 @@ function StylesViewModel() {
 require('util').inherits(StylesViewModel, ViewModel);
 
 StylesViewModel.prototype.getStyles = function() {
-  return assets.development.css.map(function(style) {
+  return assets[this.env].css.map(function(style) {
     return style.replace(/public\/(build\/)?/, '');
   })
 };
 
-module.exports = exports = StylesViewModel;
+module.exports = StylesViewModel;

@@ -13,7 +13,7 @@ require('util').inherits(ControllerHome, ControllerLayout);
 
 ControllerHome.prototype.actionIndex = function() {
   this.layout.setData({
-    body: ViewModel.factory('pages/home').render()
+    body: ViewModel.factory(this, 'pages/home').render()
   });
 };
 

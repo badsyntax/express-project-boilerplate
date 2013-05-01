@@ -1,7 +1,7 @@
 var express = require('express'),
   http = require('http'),
   path = require('path'),
-  Router = require('./lib/router');
+  Router = require('./lib/Router');
 
 var app = express();
 
