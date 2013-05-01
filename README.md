@@ -4,8 +4,8 @@ A starter application that uses the following technologies:
 
 * nodejs
 * express
-* requirejs
 * grunt
+* requirejs
 * bower
 * jasmine
 * sass
@@ -13,6 +13,8 @@ A starter application that uses the following technologies:
 * uglifyjs
 * handlebars
 * knockout
+* director
+* bootstrap
 
 ## Installation:
 
@@ -33,7 +35,9 @@ A starter application that uses the following technologies:
 
 ## Grunt tasks
 
-Run `grunt` to run all grunt tasks.
+Run `grunt` to run the default grunt tasks.
+
+All grunt tasks:
 
 * grunt watch (for watching and compiling your sass files)
 * grunt test
