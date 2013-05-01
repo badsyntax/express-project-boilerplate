@@ -5,8 +5,8 @@ function LayoutViewModel() {
   ViewModel.apply(this, arguments);
 
   this.setData({
-    head: ViewModel.factory('fragments/head').render(),
-    scripts: ViewModel.factory('fragments/scripts').render()
+    scripts: ViewModel.factory('fragments/scripts').render(),
+    styles: ViewModel.factory('fragments/styles').render()
   })
 }
 

@@ -3,7 +3,7 @@ module.exports = exports = [{
     controller: 'home',
     directory: 'admin'
   }, {
-    uri: '/post/:uri?',
+    uri: '/post/:uri',
     controller: 'post'
   }, {
     uri: '/:controller?/:action?/:id?',
