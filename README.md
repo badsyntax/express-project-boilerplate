@@ -36,7 +36,7 @@ A starter application that uses the following technologies:
 
 ## Running and developing the application
 
-* Run the `grunt watch` task while developing, this will compile your sass when you make changes.
+* Run the `grunt watch` task while developing, this will compile your sass when you make changes
 * Run `node app.js` to start the application
 * Run `nodemon app.js` to start the application and reload the application when files change
 
@@ -54,15 +54,15 @@ Run `grunt` to run the default grunt tasks.
 
 Here are the individual grunt tasks you can run:
 
-* grunt watch (for watching and compiling your sass files)
-* grunt test
-* grunt compass
-* grunt uglify
-* grunt jshint
-* grunt jasmine
-* grunt format
-* grunt jsbeautifier
-* grunt sass-convert
+* `grunt watch`
+* `grunt test`
+* `grunt compass`
+* `grunt uglify`
+* `grunt jshint`
+* `grunt jasmine`
+* `grunt format`
+* `grunt jsbeautifier`
+* `grunt sass-convert`
 
 ## MVC
 
