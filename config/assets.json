@@ -1,17 +1,17 @@
 {
   "development": {
     "scripts": [
-      "/src/components/jquery/jquery.js",
-      "/src/components/requirejs/require.js",
-      "/src/js/app.js"
+      "public/src/components/jquery/jquery.js",
+      "public/src/components/requirejs/require.js",
+      "public/src/js/app.js"
     ],
     "css": [
-      "/src/components/bootstrap/docs/assets/css/bootstrap.css",
-      "/src/css/styles.css"
+      "public/src/components/bootstrap/docs/assets/css/bootstrap.css",
+      "public/src/css/styles.css"
     ]
   },
   "production": {
-    "script": "/build/js/scripts.js",
-    "css": "/build/css/styles.css"
+    "script": "public/build/js/scripts.js",
+    "css": "public/build/css/styles.css"
   }
 }

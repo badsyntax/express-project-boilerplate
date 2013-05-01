@@ -90,7 +90,7 @@ module.exports = function(grunt) {
         'controllers/**/*.js',
         'lib/**/*.js',
         'routes/**/*.js',
-        'viewmodels/**/*.js',
+        'viewmodels/**/*.js'
       ],
       options: {
         indent_size: 2,
