@@ -1,20 +1,20 @@
-var Controller = require('../lib/controller');
-var ViewModel = require('../lib/viewmodel');
+var ControllerLayout = require('../lib/Controller/ControllerLayout');
+var ViewModel = require('../lib/ViewModel');
 var q = require('q');
 
-function HomeController() {
-  Controller.apply(this, arguments);
+function ControllerHome() {
+  ControllerLayout.apply(this, arguments);
   this.layout.setGlobalData({
     title: 'Home'
   });
 }
 
-require('util').inherits(HomeController, Controller);
+require('util').inherits(ControllerHome, ControllerLayout);
 
-HomeController.prototype.actionIndex = function() {
+ControllerHome.prototype.actionIndex = function() {
   this.layout.setData({
     body: ViewModel.factory('pages/home').render()
   });
 };
 
-module.exports = HomeController;
+module.exports = ControllerHome;
