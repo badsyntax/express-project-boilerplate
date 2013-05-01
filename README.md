@@ -56,20 +56,24 @@ models and provide that data to the views.
 Routes map urls to controllers. The default route will try to map all requests to the relevant controllers. 
 Here's an example of this catch-all default route:
 
-    {
-      uri: '/:controller?/:action?/:id?',
-      defaults: {
-        controller: 'home',
-        action: 'index'
-      }
-    }
+```javascript
+{
+  uri: '/:controller?/:action?/:id?',
+  defaults: {
+    controller: 'home',
+    action: 'index'
+  }
+}
+```
     
 Here's an example of a custom route:
 
-    {
-      uri: '/post/:uri',
-      controller: 'post'
-    }
+```javascript
+{
+  uri: '/post/:uri',
+  controller: 'post'
+}
+````
 
 ### Controller usage
 
@@ -78,24 +82,25 @@ controllers will create a 'layout' viewmodel, and all other ViewModels are added
 
 Here's an example of a custom 'home' controller:
 
-    var Controller = require('../lib/controller');
-    var ViewModel = require('../lib/viewmodel');
+```javascript
+var Controller = require('../lib/controller');
+var ViewModel = require('../lib/viewmodel');
 
-    function HomeController() {
-      Controller.apply(this, arguments);
-      this.layout.setGlobalData({
-        title: 'Home'
-      }); 
-    }
+function HomeController() {
+  Controller.apply(this, arguments);
+  this.layout.setGlobalData({
+    title: 'Home'
+  }); 
+}
 
-    require('util').inherits(HomeController, Controller);
+require('util').inherits(HomeController, Controller);
 
-    HomeController.prototype.actionIndex = function() {
-      this.layout.setData({
-        body: ViewModel.factory('pages/home').render()
-      });
-    };
-
+HomeController.prototype.actionIndex = function() {
+  this.layout.setData({
+    body: ViewModel.factory('pages/home').render()
+  });
+};
+````
 
 ### ViewModel usage
 
@@ -103,53 +108,59 @@ Generally you want to use a ViewModel for every view.
 
 Here's an example of a basic ViewModel. You need to set the view data using the 'setData' method:
 
-    function MyViewModel() {
-      ViewModel.apply(this, arguments);
-      this.setData({
-        data: this.getData()
-      });
-    }
+```javascript
+function MyViewModel() {
+  ViewModel.apply(this, arguments);
+  this.setData({
+    data: this.getData()
+  });
+}
 
-    require('util').inherits(MyViewModel, ViewModel);
+require('util').inherits(MyViewModel, ViewModel);
 
-    MyViewModel.prototype.getData = function() {
-      return 'data';
-    };
+MyViewModel.prototype.getData = function() {
+  return 'data';
+};
+```
 
 #### Async data retrieval
 
 You can retrieve data in the ViewModels asyncronously via Q promises.
 
-    function MyViewModel() {
-      ViewModel.apply(this, arguments);
-      this.setData({
-        people: this.getPeople()
-      });
-    }
+```javascript
+function MyViewModel() {
+  ViewModel.apply(this, arguments);
+  this.setData({
+    people: this.getPeople()
+  });
+}
 
-    require('util').inherits(MyViewModel, ViewModel);
+require('util').inherits(MyViewModel, ViewModel);
 
-    MyViewModel.prototype.getPeople = function() {
+MyViewModel.prototype.getPeople = function() {
 
-      var deferred = q.defer();
+  var deferred = q.defer();
 
-      setTimeout(function() {
-        deferred.resolve([{
-          name: 'Richard',
-          surname: 'Willis'
-         }]);
-      }, 400);
+  setTimeout(function() {
+    deferred.resolve([{
+      name: 'Richard',
+      surname: 'Willis'
+    }]);
+  }, 400);
 
-      return deferred.promise;
-    };
+  return deferred.promise;
+};
+```
 
 ## Sublime Text config:
 
-    {
-      "font_size": 11,
-      "tab_size": 2,
-      "translate_tabs_to_spaces": true,
-      "trim_automatic_white_space": true,
-      "trim_trailing_white_space_on_save": true,
-      "word_wrap": false
-    }
+```javascript
+{
+  "font_size": 11,
+  "tab_size": 2,
+  "translate_tabs_to_spaces": true,
+  "trim_automatic_white_space": true,
+  "trim_trailing_white_space_on_save": true,
+  "word_wrap": false
+}
+```
