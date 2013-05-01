@@ -1,8 +1,9 @@
 # express-project-boilerplate
 
-A starter application that uses the following technologies:
+A starter project for building a modern JavaScript web application. This project uses the following technologies:  
 
 * [nodejs](http://nodejs.org/)
+* [npm](https://npmjs.org/)
 * [express](http://expressjs.com/)
 * [grunt](http://gruntjs.com/)
 * [requirejs](http://requirejs.org/)
@@ -21,12 +22,12 @@ A starter application that uses the following technologies:
 ## Installation:
 
 1. Ensure you have all the following software installed on your system:
-    * nodejs
-    * npm
-    * bower
-    * nodemon
-    * sass
-    * compass
+    * [nodejs](http://nodejs.org/)
+    * [npm](https://npmjs.org/)
+    * [bower](http://bower.io/)
+    * [nodemon](https://github.com/remy/nodemon)
+    * [sass](http://sass-lang.com/)
+    * [compass](http://compass-style.org/)
 2. Clone the project from github: `git clone git://github.com/badsyntax/express-project-boilerplate.git`
 3. Install node modules: `npm install`
 4. Insall client-side components: `bower install`
@@ -42,8 +43,10 @@ A starter application that uses the following technologies:
 
 ### Application environment
 
-The application will perform different tasks based on the application environment. You can access the environment value
-by calling `app.get('env')` which will return either 'development' or 'production'.
+The application will perform different tasks based on the application environment. 
+
+You can access the environment value by calling `app.get('env')` which will return either 
+'development' or 'production'.
 
 By default, the application will run in development mode, but you can use the following command to test the application
 in production mode: `NODE_ENV=production node app.js`
