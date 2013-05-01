@@ -125,6 +125,9 @@ HomeController.prototype.actionIndex = function() {
 };
 ````
 
+Here's an example of how to use the default REST controller, for creating an API:
+
+
 TODO: show example of how to use the ControllerREST
 
 ### ViewModel usage
