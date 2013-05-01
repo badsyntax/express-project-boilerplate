@@ -33,7 +33,7 @@ A starter application that uses the following technologies:
 ## Developing
 
 * Run the `grunt watch` task while developing, this will compile your sass when you make changes.
-* Run `nodemon app` to start up the applicaiton.
+* Run `nodemon app.js` to start up the applicaiton.
 * The application will run in 'developement' mode when running from localhost, and 'production' mode when not running on localhost.
 
 ## Grunt tasks
