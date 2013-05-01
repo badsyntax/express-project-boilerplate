@@ -28,19 +28,31 @@ A starter application that uses the following technologies:
     * sass
     * compass
 2. Clone the project from github: `git clone git://github.com/badsyntax/express-project-boilerplate.git`
-3. Run `install.sh` or `install.bat`
+3. Install node modules: `npm install`
+4. Insall client-side components: `bower install`
+5. Compile the default Sass: `grunt compass`
+6. Compress and concat the default asset files: `grunt uglify && grunt concat` 
+7. That's all, now run `node app.js` to boot up the basic application
 
-## Developing
+## Running and developing the application
 
 * Run the `grunt watch` task while developing, this will compile your sass when you make changes.
-* Run `nodemon app.js` to start up the applicaiton.
-* The application will run in 'developement' mode when running from localhost, and 'production' mode when not running on localhost.
+* Run `node app.js` to start the application
+* Run `nodemon app.js` to start the application and reload the application when files change
+
+### Application environment
+
+The application will perform different tasks based on the application environment. You can access the environment value
+by calling `app.get('env')` which will return either 'development' or 'production'.
+
+By default, the application will run in development mode, but you can use the following command to test the application
+in production mode: `NODE_ENV=production node app.js`
 
 ## Grunt tasks
 
 Run `grunt` to run the default grunt tasks.
 
-All grunt tasks:
+Here are the individual grunt tasks you can run:
 
 * grunt watch (for watching and compiling your sass files)
 * grunt test
