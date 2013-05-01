@@ -11,7 +11,11 @@
     ]
   },
   "production": {
-    "script": "public/build/js/scripts.js",
-    "css": "public/build/css/styles.css"
+    "scripts": [
+      "public/build/js/scripts.min.js"
+    ],
+    "css": [
+      "public/build/css/styles.min.css"
+    ]
   }
 }

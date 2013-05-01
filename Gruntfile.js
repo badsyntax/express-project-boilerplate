@@ -14,35 +14,15 @@ module.exports = function(grunt) {
       },
       build: {
         src: assets.development.scripts,
-        dest: assets.production.script
+        dest: assets.production.scripts[0]
       }
     },
     compass: {
-      dist: {
-        options: {
-          sassDir: 'public/src/scss',
-          cssDir: 'public/build/css',
-          environment: 'production'
-        }
-      },
       dev: {
         options: {
           sassDir: 'public/src/scss',
           cssDir: 'public/src/css'
         }
-      }
-    },
-    concat: {
-      options: {
-        stripBanners: true,
-        banner: [
-          '/*! <%= pkg.name %> - v<%= pkg.version %> - ',
-          '<%= grunt.template.today("yyyy-mm-dd") %> */\n'
-        ].join('')
-      },
-      dist: {
-        src: ['public/build/css/styles.css'],
-        dest: 'public/build/css/styles.css'
       }
     },
     jshint: {
@@ -78,6 +58,22 @@ module.exports = function(grunt) {
       },
       options: {
         indent: 2
+      }
+    },
+    cssmin: {
+      minify: {
+        options: {
+          keepSpecialComments: 0,
+          banner: [
+            '/*! <%= pkg.name %> - v<%= pkg.version %> - ',
+            '<%= grunt.template.today("yyyy-mm-dd") %> */'
+          ].join('')
+        },
+        files: (function() {
+          var files = {};
+          files[assets.production.css] = assets.development.css;
+          return files;
+        }())
       }
     },
     jsbeautifier: {
@@ -116,9 +112,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-jsbeautifier');
   grunt.loadNpmTasks('grunt-sass-convert');
 
@@ -132,6 +128,6 @@ module.exports = function(grunt) {
     'jasmine',
     'compass',
     'uglify',
-    'concat'
+    'cssmin'
   ]);
 };

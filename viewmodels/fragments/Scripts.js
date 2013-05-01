@@ -6,7 +6,7 @@ var assets = require('../../config/assets.json');
 function ScriptsViewModel() {
   ViewModel.apply(this, arguments);
 
-  this.env = this.controller.app.get('env');
+  this.env = this.app.get('env');
   this.setData({
     scripts: this.getScripts()
   });

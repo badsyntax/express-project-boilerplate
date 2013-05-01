@@ -4,7 +4,7 @@ var assets = require('../../config/assets.json');
 function StylesViewModel() {
   ViewModel.apply(this, arguments);
 
-  this.env = this.controller.app.get('env');
+  this.env = this.app.get('env');
   this.setData({
     styles: this.getStyles()
   });
