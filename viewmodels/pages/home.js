@@ -1,4 +1,4 @@
-var ViewModel = require('../../lib/viewmodel');
+var ViewModel = require('../../lib/ViewModel');
 var q = require('q');
 
 function HomeViewModel() {
