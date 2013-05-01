@@ -127,12 +127,62 @@ HomeController.prototype.actionIndex = function() {
 
 Here's an example of how to use the default REST controller, for creating an API:
 
+```javascript
+var ControllerREST = require('../lib/Controller/ControllerREST');
 
-TODO: show example of how to use the ControllerREST
+function ControllerAPI() {
+  ControllerREST.apply(this, arguments);
+}
+
+require('util').inherits(ControllerAPI, ControllerREST);
+
+// GET request (list)
+ControllerAPI.prototype.actionIndex = function() {
+
+  var response = JSON.stringify({
+    hello: 'world'
+  });
+
+  this.sendResponse(200, 'application/json', response);
+};
+
+// POST request (create)
+ControllerAPI.prototype.actionPost = function() {
+
+  var response = JSON.stringify({
+    hello: 'world'
+  });
+
+  this.sendResponse(200, 'application/json', response);
+};
+
+// PUT request (update)
+ControllerAPI.prototype.actionUpdate = function() {
+
+  var response = JSON.stringify({
+    hello: 'world'
+  });
+
+  this.sendResponse(200, 'application/json', response);
+};
+
+// DELETE request (delete)
+ControllerAPI.prototype.actionDelete = function() {
+
+  var response = JSON.stringify({
+    hello: 'world'
+  });
+
+  this.sendResponse(200, 'application/json', response);
+};
+
+module.exports = ControllerAPI;
+```
 
 ### ViewModel usage
 
-Generally you want to use a ViewModel for every view. 
+Every view should have an associated ViewModel. You should render markup from ViewModels instead of from
+the views directly.
 
 Here's an example of a basic ViewModel. You need to set the view data using the 'setData' method:
 
