@@ -84,23 +84,24 @@ Here's an example of a custom route:
 
 ### Controller usage
 
-Controllers will handle the request and user input, as well as creating the required ViewModels. By default, 
-controllers will create a 'layout' viewmodel, and all other ViewModels are added to this layout ViewModel.
+Controllers will handle the request and user input, as well as creating ViewModels. For requests that return markup,
+use the 'ControllerLayout', which will create a 'layout' viewmodel, and all other ViewModels are added to this 
+layout ViewModel.
 
 Here's an example of a custom 'home' controller:
 
 ```javascript
-var Controller = require('../lib/controller');
-var ViewModel = require('../lib/viewmodel');
+var ControllerLayout = require('../lib/Controller/ControllerLayout');
+var ViewModel = require('../lib/ViewModel');
 
 function HomeController() {
-  Controller.apply(this, arguments);
+  ControllerLayout.apply(this, arguments);
   this.layout.setGlobalData({
     title: 'Home'
   }); 
 }
 
-require('util').inherits(HomeController, Controller);
+require('util').inherits(HomeController, ControllerLayout);
 
 HomeController.prototype.actionIndex = function() {
   this.layout.setData({
@@ -108,6 +109,8 @@ HomeController.prototype.actionIndex = function() {
   });
 };
 ````
+
+TODO: show example of how to use the ControllerREST
 
 ### ViewModel usage
 
