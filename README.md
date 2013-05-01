@@ -51,10 +51,97 @@ This system extends express to provide a more verbose and automated MVC system. 
 route requests to controllers. Controllers create the ViewModels and handle user input. ViewModels retrieve data
 models and provide that data to the views.
 
-## Templating
+### Routing
+
+Routes map urls to controllers. The default route will try to map all requests to the relevant controllers. 
+Here's an example of this catch-all default route:
+
+    {
+      uri: '/:controller?/:action?/:id?',
+      defaults: {
+        controller: 'home',
+        action: 'index'
+      }
+    }
+    
+Here's an example of a custom route:
+
+    {
+      uri: '/post/:uri',
+      controller: 'post'
+    }
+
+### Controller usage
+
+Controllers will handle the request and user input, as well as creating the required ViewModels. By default, 
+controllers will create a 'layout' viewmodel, and all other ViewModels are added to this layout ViewModel.
+
+Here's an example of a custom 'home' controller:
+
+    var Controller = require('../lib/controller');
+    var ViewModel = require('../lib/viewmodel');
+
+    function HomeController() {
+      Controller.apply(this, arguments);
+      this.layout.setGlobalData({
+        title: 'Home'
+      }); 
+    }
+
+    require('util').inherits(HomeController, Controller);
+
+    HomeController.prototype.actionIndex = function() {
+      this.layout.setData({
+        body: ViewModel.factory('pages/home').render()
+      });
+    };
+
+
+### ViewModel usage
+
+Generally you want to use a ViewModel for every view. 
+
+Here's an example of a basic ViewModel. You need to set the view data using the 'setData' method:
+
+    function MyViewModel() {
+      ViewModel.apply(this, arguments);
+      this.setData({
+        data: this.getData()
+      });
+    }
+
+    require('util').inherits(MyViewModel, ViewModel);
+
+    MyViewModel.prototype.getData = function() {
+      return 'data';
+    };
+
+#### Async data retrieval
 
 You can retrieve data in the ViewModels asyncronously via Q promises.
-Handlebars templating is used to display the data in the views. Generally you want to use a ViewModel for every view.
+
+    function MyViewModel() {
+      ViewModel.apply(this, arguments);
+      this.setData({
+        people: this.getPeople()
+      });
+    }
+
+    require('util').inherits(MyViewModel, ViewModel);
+
+    MyViewModel.prototype.getPeople = function() {
+
+      var deferred = q.defer();
+
+      setTimeout(function() {
+        deferred.resolve([{
+          name: 'Richard',
+          surname: 'Willis'
+         }]);
+      }, 400);
+
+      return deferred.promise;
+    };
 
 ## Sublime Text config:
 
