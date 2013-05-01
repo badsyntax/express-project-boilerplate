@@ -2,19 +2,21 @@
 
 A starter application that uses the following technologies:
 
-* nodejs
-* express
-* grunt
-* requirejs
-* bower
-* jasmine
-* sass
-* jquery
-* uglifyjs
-* handlebars
-* knockout
-* director
-* bootstrap
+* [nodejs](http://nodejs.org/)
+* [express](http://expressjs.com/)
+* [grunt](http://gruntjs.com/)
+* [requirejs](http://requirejs.org/)
+* [bower](http://bower.io/)
+* [jasmine](http://pivotal.github.io/jasmine/)
+* [Q](http://documentup.com/kriskowal/q)
+* [uglifyjs](https://github.com/mishoo/UglifyJS)
+* [handlebars](http://handlebarsjs.com/)
+* [sass](http://sass-lang.com/)
+* [compass](http://compass-style.org/)
+* [jquery](http://jquery.com/)
+* [knockoutjs](http://knockoutjs.com/)
+* [director](https://github.com/flatiron/director)
+* [bootstrap](http://twitter.github.io/bootstrap/)
 
 ## Installation:
 
