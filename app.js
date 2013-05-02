@@ -1,11 +1,13 @@
-var express = require('express'),
-  http = require('http'),
-  path = require('path'),
-  Router = require('./lib/Router');
+// Load dependencies
+var express = require('express');
+var http = require('http');
+var path = require('path');
+var Router = require('./lib/Router');
 
+// Create the app
 var app = express();
 
-// All environments
+// Configure all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view options', {
@@ -21,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public', 'build')));
 app.use(app.router);
 
 // Development only
-if ('development' == app.get('env')) {
+if (app.get('env') === 'development') {
   app.use(express.errorHandler());
 }
 
@@ -29,5 +31,9 @@ if ('development' == app.get('env')) {
 new Router(app);
 
 http.createServer(app).listen(app.get('port'), function() {
-  console.log('Express server listening on port %s in %s mode', app.get('port'), app.get('env'));
+  console.log(
+    'Express server listening on port %s in %s mode',
+    app.get('port'),
+    app.get('env')
+  );
 });
