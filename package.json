@@ -23,6 +23,7 @@
     "grunt-contrib-watch": "0.2",
     "grunt-contrib-cssmin": "0.4",
     "grunt-jsbeautifier": "0.1",
-    "grunt-sass-convert": "0.1"
+    "grunt-sass-convert": "0.1",
+    "grunt-contrib-requirejs": "0.4"
   }
 }

@@ -60,6 +60,22 @@ module.exports = function(grunt) {
         indent: 2
       }
     },
+    requirejs: {
+      compile: {
+        options: {
+          baseUrl: 'public/src/js',
+
+          name: "main",
+          // mainConfigFile: "public/src/js/main.js",
+          optimize: "uglify2",
+           //The directory path to save the output.
+          out: "public/build/js/build.js",
+          insertRequire: [
+            "public/src/js/main"
+          ]
+        }
+      }
+    },
     cssmin: {
       minify: {
         options: {
@@ -117,6 +133,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-jsbeautifier');
   grunt.loadNpmTasks('grunt-sass-convert');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
 
   // Custom tasks
   grunt.registerTask('test', ['jshint', 'jasmine']);

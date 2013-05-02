@@ -6,7 +6,8 @@ function LayoutViewModel() {
 
   this.setData({
     scripts: this.getScripts(),
-    styles: this.getStyles()
+    styles: this.getStyles(),
+    config: this.getConfig()
   })
 }
 
@@ -18,6 +19,10 @@ LayoutViewModel.prototype.getScripts = function() {
 
 LayoutViewModel.prototype.getStyles = function() {
   return ViewModel.factory(this.controller, 'fragments/styles').render()
+};
+
+LayoutViewModel.prototype.getConfig = function() {
+
 };
 
 module.exports = exports = LayoutViewModel;

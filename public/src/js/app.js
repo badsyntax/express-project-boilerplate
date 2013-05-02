@@ -4,7 +4,7 @@ define([
 function (Router) {
 
   function init(config) {
-    alert('app init');
+    Router.init();
   }
 
   return {

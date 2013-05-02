@@ -1,8 +1,9 @@
 requirejs.config({
-  baseUrl: 'src/js',
+  baseUrl: '/src/js',
   paths: {
     jquery: '/src/components/jquery/jquery',
     knockout: '/src/components/knockout/build/output/knockout-latest',
+    director: '/src/components/director/build/director'
   }
 });
 
