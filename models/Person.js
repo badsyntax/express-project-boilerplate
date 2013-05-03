@@ -7,6 +7,6 @@ var PersonSchema = mongoose.Schema({
     isDead: Boolean
 });
 
-var PersonModel = mongoose.model('Person', PersonSchema)
+var PersonModel = mongoose.model('Person', PersonSchema);
 
 module.exports = exports = PersonModel;

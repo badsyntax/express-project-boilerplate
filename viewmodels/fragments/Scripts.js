@@ -24,7 +24,7 @@ ScriptsViewModel.prototype.getScripts = function() {
     script.src = script.src.replace(this.regex, '');
     script.main = script.main.replace(this.regex, '');
     return script;
-  }.bind(this))
+  }.bind(this));
 };
 
 module.exports = ScriptsViewModel;

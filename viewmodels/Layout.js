@@ -8,7 +8,7 @@ function LayoutViewModel() {
     scripts: this.getScripts(),
     styles: this.getStyles(),
     config: this.getConfig()
-  })
+  });
 }
 
 require('util').inherits(LayoutViewModel, ViewModel);
@@ -18,7 +18,7 @@ LayoutViewModel.prototype.getScripts = function() {
 };
 
 LayoutViewModel.prototype.getStyles = function() {
-  return ViewModel.factory(this.controller, 'fragments/styles').render()
+  return ViewModel.factory(this.controller, 'fragments/styles').render();
 };
 
 LayoutViewModel.prototype.getConfig = function() {

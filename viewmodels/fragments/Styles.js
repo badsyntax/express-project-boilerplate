@@ -15,7 +15,7 @@ require('util').inherits(StylesViewModel, ViewModel);
 StylesViewModel.prototype.getStyles = function() {
   return assets[this.env].css.map(function(style) {
     return style.replace(/public\/(build\/)?/, '');
-  })
+  });
 };
 
 module.exports = StylesViewModel;

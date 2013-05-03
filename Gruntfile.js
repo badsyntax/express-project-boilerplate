@@ -27,6 +27,12 @@ module.exports = function(grunt) {
     },
     jshint: {
       files: [
+        'lib/**/*.js',
+        'controllers/**/*.js',
+        'viewmodels/**/*.js',
+        'routes/**/*.js',
+        'models/**/*.js',
+        'public/tests/specs/**/*.js',
         'Gruntfile.js',
         'public/src/js/main.js',
         'public/src/js/modules/**/*.js'
@@ -41,7 +47,9 @@ module.exports = function(grunt) {
       }
     },
     jasmine: {
-      src: assets.development.scripts,
+      src: [
+        assets.development.scripts[0].src
+      ],
       options: {
         specs: 'spec/**/*.js'
       }
@@ -64,15 +72,10 @@ module.exports = function(grunt) {
       compile: {
         options: {
           baseUrl: 'public/src/js',
-
           name: "main",
-          // mainConfigFile: "public/src/js/main.js",
+          mainConfigFile: "public/src/js/main.js",
           optimize: "uglify2",
-           //The directory path to save the output.
-          out: "public/build/js/build.js",
-          insertRequire: [
-            "public/src/js/main"
-          ]
+          out: "public/build/js/build.js"
         }
       }
     },
@@ -144,7 +147,7 @@ module.exports = function(grunt) {
     'jshint',
     'jasmine',
     'compass',
-    'uglify',
+    'requirejs',
     'cssmin'
   ]);
 };

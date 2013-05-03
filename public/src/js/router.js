@@ -1,8 +1,12 @@
 define([
-  'director'
+  // 'director'
 ], function(director) {
 
   function init() {
+
+    var test = 'helli';
+
+    console.log(test);
 
       var routes = {
         '/author': function () {

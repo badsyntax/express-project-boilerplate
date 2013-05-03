@@ -5,12 +5,17 @@ var PersonModel = require('../models/Person');
 
 function ControllerHome() {
   ControllerLayout.apply(this, arguments);
-  this.layout.setGlobalData({
-    title: 'Home'
-  });
 }
 
 require('util').inherits(ControllerHome, ControllerLayout);
+
+ControllerHome.prototype.before = function() {
+  ControllerLayout.prototype.before.apply(this, arguments);
+
+  this.layout.setGlobalData({
+    title: 'Home'
+  });
+};
 
 ControllerHome.prototype.actionIndex = function() {
   this.layout.setData({
@@ -18,4 +23,4 @@ ControllerHome.prototype.actionIndex = function() {
   });
 };
 
-module.exports = ControllerHome;
+module.exports = exports = ControllerHome;
