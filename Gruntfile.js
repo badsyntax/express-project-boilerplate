@@ -5,9 +5,7 @@ module.exports = function(grunt) {
   var pkg = grunt.file.readJSON('package.json');
   var assets = grunt.file.readJSON('config/assets.json');
 
-  console.log(assets.development.scripts.files[0].src);
-
-  // Project configuration.
+  // Project configuration
   grunt.initConfig({
     pkg: pkg,
     uglify: {
@@ -51,9 +49,9 @@ module.exports = function(grunt) {
     jasmine: {
       src: assets.development.scripts.files[0].src,
       options: {
-        specs: 'public/tests/spec/**/*.js'
-        // amd: true,
-        // keepRunner: false
+        specs: 'public/tests/spec/**/*.js',
+        amd: true,
+        keepRunner: false
       }
     },
     watch: {
@@ -74,11 +72,13 @@ module.exports = function(grunt) {
       compile: {
         options: {
           baseUrl: 'public/src/js',
-          name: 'main',
+          name: 'app',
           // mainConfigFile: 'public/src/js/main.js',
           optimize: 'uglify2',
           out: 'public/build/js/build.js',
-          paths: assets.development.scripts.paths
+          paths: assets.development.scripts.paths,
+          useStrict: false,
+          findNestedDependencies: true
         }
       }
     },

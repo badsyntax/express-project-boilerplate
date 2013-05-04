@@ -1,22 +1,34 @@
 define([
   'util/config',
-  'director'
-], function(config, director) {
+  'director',
+  'controllers/home'
+], function(config, director, HomeController) {
 
-  function init() {
+  'use strict';
 
-    var routes = {
-      '/author': function () {
-        var app = require('./app');
-        console.log(app);
-      },
-    };
+  var Router = {
+    init: function(controller) {
+      if (controller) {
+        this.initController(controller);
+      } else {
+        initSinglePageRouter();
+      }
+    },
+    initController: function(controller) {
+      new (require('controllers/' + controller));
+    },
+    initSinglePageRouter: function() {
 
-    var router = Router(routes);
-    router.init();
-  }
+      var routes = {
+        '/author': function () {
+          console.log('author');
+        },
+      };
 
-  return {
-    init: init
-  }
+      var router = Router(routes);
+      router.init();
+    }
+  };
+
+  return Router;
 });

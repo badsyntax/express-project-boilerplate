@@ -1,23 +1,18 @@
-define([
+define('app', [
+  'module',
   'util/config',
   'router',
-  'globalize',
-  'jquery'
-], function (Config, Router, Globalize, $) {
+  'globalize'
+], function (module, Config, Router, Globalize) {
 
-  function init(config) {
+  'use strict';
 
-    /* Set global app config */
-    Config.set(config);
+  /* Set global app config */
+  Config.set(module.config());
 
-    /* Set globalization culture */
-    Globalize.culture(config.culture || 'en-GB');
+  /* Set globalization culture */
+  Globalize.culture(Config.get('culture') || 'en-GB');
 
-    /* Route to controller */
-    Router.init();
-  }
-
-  return {
-    init: init
-  }
+  /* Route to controller */
+  Router.init(Config.get('controller'));
 });

@@ -1,17 +1,16 @@
 {{#if development}}
-<script>
-  var require={
-    baseUrl: '{{require.baseUrl}}',
-    paths: {{{require.paths}}},
-    shim: {{{require.shim}}},
-    config: {
-      main: {
-        controller: 'home'
+  {{#each scripts}}
+    <script src="{{src}}"></script>
+  {{/each}}
+  <script>
+    requirejs.config({
+      baseUrl: '{{require.baseUrl}}',
+      paths: {{{require.paths}}},
+      shim: {{{require.shim}}},
+      config: {
+        app: {{#json appConfig}}{{/json}}
       }
-    }
-  };
-</script>
-{{#each scripts}}
-  <script defer data-main="{{main}}" src="{{src}}"></script>
-{{/each}}
+    });
+    require(['app']);
+  </script>
 {{/if}}

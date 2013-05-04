@@ -31,12 +31,7 @@ ScriptsViewModel.prototype.getScripts = function() {
 ScriptsViewModel.prototype.getRequire = function() {
   return {
     baseUrl: 'src/js',
-    paths: JSON.stringify({
-      jquery: '../components/jquery/jquery',
-      knockout: '../components/knockout/build/output/knockout-latest',
-      director: '../components/director/build/director',
-      globalize: '../components/globalize/lib/globalize'
-    }),
+    paths: JSON.stringify(assets[this.env].scripts.paths),
     shim: JSON.stringify({
       globalize: {
         deps: ['jquery'],

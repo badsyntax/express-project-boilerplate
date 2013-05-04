@@ -3,6 +3,8 @@
  */
 define(function() {
 
+  'use strict';
+
   function isObject(variable) {
     return typeof variable === 'object';
   }
@@ -11,7 +13,7 @@ define(function() {
   function mixin(target, source) {
     for (var prop in source) {
       if (isObject(target[prop]) && isObject(source[prop])) {
-        mixin(target[prop], source[prop]); // resursively mixin new properties
+        mixin(target[prop], source[prop]);
         continue;
       }
       target[prop] = source[prop]

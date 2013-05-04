@@ -2,6 +2,8 @@ define([
   './datamanager'
 ], function (datamanager) {
 
+  'use strict';
+
   var data = {};
 
   return {
