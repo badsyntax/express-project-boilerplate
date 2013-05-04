@@ -8,6 +8,7 @@ define([
   'use strict';
 
   function HomeController() {
+    console.log('Home Controller');
     this.initViewModels();
   }
 

@@ -1,24 +1,18 @@
 define(function() {
 
-  'use strict';
+  function noop(){}
 
-  function mixin(obj1, obj2) {
-    for(var prop in obj2) {
-      if (obj2.hasOwnPropery(prop)) {
-        obj1[prop] = obj2[prop];
-      }
-    }
+  function ecma3(ctor, superCtor) {
+    noop.prototype = superCtor.prototype;
+    ctor.prototype = new noop;
+    ctor.prototype.constructor = superCtor;
   }
 
-  function inherits(_sub, _super, _mixin) {
-    _sub.prototype = Object.create(_super.prototype);
-    _sub.prototype.constructor = _sub;
-    if (_mixin instanceof Object) {
-      mixin(_sub, _mixin);
-    }
-    return _sub;
+  function ecma5(ctor, superCtor) {
+    ctor.prototype = Object.create(superCtor.prototype, {
+      constructor: { value: ctor, enumerable: false }
+    });
   }
 
-  return inherits;
-
+  return Object.create ? ecma5 : ecma3;
 });

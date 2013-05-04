@@ -1,34 +1,54 @@
 define([
-  'util/config',
-  'director',
+  'app',
+  // Be sure to require all controllers here
   'controllers/home'
-], function(config, director, HomeController) {
+], function(app, HomeController) {
 
   'use strict';
 
-  var Router = {
-    init: function(controller) {
-      if (controller) {
-        this.initController(controller);
-      } else {
-        initSinglePageRouter();
-      }
-    },
-    initController: function(controller) {
-      new (require('controllers/' + controller));
-    },
-    initSinglePageRouter: function() {
+  var controller;
+  var controllers = {};
 
-      var routes = {
-        '/author': function () {
-          console.log('author');
-        },
+  return {
+    init: function() {
+
+      this.config = {
+        delimiter: '/',
+        before: this.before.bind(this)
       };
 
-      var router = Router(routes);
-      router.init();
+      this.routes = {
+        '': this.controller.bind(this, 'home', HomeController)
+      };
+
+      this.router = Router(this.routes)
+      .configure(this.config)
+      .init();
+
+      // FIXME: Set the default route to home
+      if (!this.router.getRoute()) {
+        this.router.setRoute('');
+      }
+    },
+    controller: function(name, Controller) {
+
+      // Destroy the previous controller
+      if (controller && controller.destroy) {
+        controller.destroy();
+      }
+      // Create a new instance of the controller
+      if (!controllers[name]) {
+        controllers[name] = new Controller();
+      }
+      // Restore the controller
+      else if (controllers[name].refresh) {
+        controllers[name].restore();
+      }
+      // Set as current controller
+      controller = controllers[name];
+    },
+    before: function() {
+      app.events.emit('route.before');
     }
   };
-
-  return Router;
 });

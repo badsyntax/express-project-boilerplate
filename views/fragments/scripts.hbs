@@ -3,14 +3,7 @@
     <script src="{{src}}"></script>
   {{/each}}
   <script>
-    requirejs.config({
-      baseUrl: '{{require.baseUrl}}',
-      paths: {{{require.paths}}},
-      shim: {{{require.shim}}},
-      config: {
-        app: {{#json appConfig}}{{/json}}
-      }
-    });
-    require(['app']);
+    requirejs.config({{{requireConfig}}});
+    require(['bootstrap']);
   </script>
 {{/if}}

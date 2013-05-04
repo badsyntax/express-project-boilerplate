@@ -14,7 +14,7 @@ function ScriptsViewModel() {
     env: this.env,
     development: (this.env === 'development'),
     scripts: this.getScripts(),
-    require: this.getRequire()
+    requireConfig: this.getRequireConfig()
   });
 }
 
@@ -28,17 +28,22 @@ ScriptsViewModel.prototype.getScripts = function() {
   }.bind(this));
 };
 
-ScriptsViewModel.prototype.getRequire = function() {
-  return {
+ScriptsViewModel.prototype.getRequireConfig = function() {
+  return JSON.stringify({
     baseUrl: 'src/js',
-    paths: JSON.stringify(assets[this.env].scripts.paths),
-    shim: JSON.stringify({
+    paths: assets[this.env].scripts.paths,
+    shim: {
       globalize: {
         deps: ['jquery'],
         exports: 'Globalize'
       }
-    })
-  };
+    },
+    config: {
+      bootstrap: {
+        culture: 'en-GB'
+      }
+    }
+  }, null, 2);
 };
 
 module.exports = ScriptsViewModel;

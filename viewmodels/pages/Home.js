@@ -1,8 +1,8 @@
-var ViewModel = require('../../lib/ViewModel');
-var q = require('q');
+var PageViewModel = require('./Page');
 
 function HomeViewModel() {
-  ViewModel.apply(this, arguments);
+
+  PageViewModel.apply(this, arguments);
 
   this.setGlobalData({
     appConfig: {
@@ -11,6 +11,6 @@ function HomeViewModel() {
   });
 }
 
-require('util').inherits(HomeViewModel, ViewModel);
+require('util').inherits(HomeViewModel, PageViewModel);
 
 module.exports = exports = HomeViewModel;

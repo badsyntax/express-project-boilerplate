@@ -6,8 +6,8 @@ define(function() {
 
   }
 
-  BaseController.prototype.something = function(first_argument) {
-    // body...
+  BaseController.prototype.destroy = function() {
+    console.log('Controller destroy');
   };
 
   return BaseController;

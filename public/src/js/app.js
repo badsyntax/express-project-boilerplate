@@ -1,18 +1,13 @@
-define('app', [
-  'module',
+define([
   'util/config',
-  'router',
+  'util/events',
+  'director',
   'globalize'
-], function (module, Config, Router, Globalize) {
-
-  'use strict';
-
-  /* Set global app config */
-  Config.set(module.config());
-
-  /* Set globalization culture */
-  Globalize.culture(Config.get('culture') || 'en-GB');
-
-  /* Route to controller */
-  Router.init(Config.get('controller'));
+], function (config, events, director, globalize) {
+  return {
+    config: config,
+    events: events,
+    director: director,
+    globalize: globalize
+  }
 });

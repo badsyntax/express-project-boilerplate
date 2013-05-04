@@ -1,23 +1,14 @@
 /**
  * A data manager that manages data stored in nested objects
  */
-define(function() {
+define([
+  'lodash'
+], function(_) {
 
   'use strict';
 
   function isObject(variable) {
     return typeof variable === 'object';
-  }
-
-  // Mixin helper used to deep-merge objects
-  function mixin(target, source) {
-    for (var prop in source) {
-      if (isObject(target[prop]) && isObject(source[prop])) {
-        mixin(target[prop], source[prop]);
-        continue;
-      }
-      target[prop] = source[prop]
-    }
   }
 
   var DataManager = {
@@ -51,7 +42,7 @@ define(function() {
     set: function(data, key, val) {
 
       if (isObject(key) && val === undefined) {
-        return mixin(data, key);
+        return _.merge(data, key);
       }
 
       var obj = data;
@@ -66,7 +57,7 @@ define(function() {
       }
 
       if (isObject(obj[key]) && isObject(val)) {
-        mixin(obj[key], val);
+        _.merge(obj[key], val);
       } else {
         obj[key] = val;
       }
@@ -78,12 +69,11 @@ define(function() {
      */
     remove: function(data, key) {
       if (key !== undefined) {
-        delete data[key];
-      } else {
-        for (var key in data) {
-          if (data.hasOwnProperty(key)) {
-            delete data[key];
-          }
+        return delete data[key];
+      }
+      for (var key in data) {
+        if (data.hasOwnProperty(key)) {
+          delete data[key];
         }
       }
     }

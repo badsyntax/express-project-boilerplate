@@ -9,7 +9,8 @@
         "jquery": "../components/jquery/jquery",
         "knockout": "../components/knockout/build/output/knockout-latest",
         "director": "../components/director/build/director",
-        "globalize": "../components/globalize/lib/globalize"
+        "globalize": "../components/globalize/lib/globalize",
+        "lodash": "../components/lodash/lodash"
       }
     },
     "css": [

@@ -24,6 +24,7 @@
     "grunt-jsbeautifier": "0.1",
     "grunt-sass-convert": "0.1",
     "grunt-contrib-requirejs": "0.4",
-    "grunt-contrib-jasmine": "~0.4.2"
+    "grunt-contrib-jasmine": "~0.4.2",
+    "lodash": "~1.2.1"
   }
 }

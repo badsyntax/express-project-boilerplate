@@ -1,12 +1,14 @@
 define([
   './config',
-  './inherits'
-], function(Config, inherits) {
+  './inherits',
+  './events'
+], function(Config, inherits, Events) {
 
   'use strict';
 
   return {
     Config: Config,
+    Events: Events,
     inherits: inherits
   }
 })
