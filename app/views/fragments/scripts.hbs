@@ -1,7 +1,7 @@
+{{#each scripts}}
+  <script src="{{src}}"></script>
+{{/each}}
 {{#if development}}
-  {{#each scripts}}
-    <script src="{{src}}"></script>
-  {{/each}}
   <script>
     requirejs.config({{{requireConfig}}});
     require(['bootstrap']);
