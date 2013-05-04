@@ -1,3 +1,17 @@
+{{#if development}}
+<script>
+  var require={
+    baseUrl: '{{require.baseUrl}}',
+    paths: {{{require.paths}}},
+    shim: {{{require.shim}}},
+    config: {
+      main: {
+        controller: 'home'
+      }
+    }
+  };
+</script>
 {{#each scripts}}
-  <script data-main="{{main}}" src="{{src}}"></script>
+  <script defer data-main="{{main}}" src="{{src}}"></script>
 {{/each}}
+{{/if}}

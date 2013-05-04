@@ -5,6 +5,8 @@ module.exports = function(grunt) {
   var pkg = grunt.file.readJSON('package.json');
   var assets = grunt.file.readJSON('config/assets.json');
 
+  console.log(assets.development.scripts.files[0].src);
+
   // Project configuration.
   grunt.initConfig({
     pkg: pkg,
@@ -47,11 +49,11 @@ module.exports = function(grunt) {
       }
     },
     jasmine: {
-      src: [
-        assets.development.scripts[0].src
-      ],
+      src: assets.development.scripts.files[0].src,
       options: {
-        specs: 'spec/**/*.js'
+        specs: 'public/tests/spec/**/*.js'
+        // amd: true,
+        // keepRunner: false
       }
     },
     watch: {
@@ -72,10 +74,11 @@ module.exports = function(grunt) {
       compile: {
         options: {
           baseUrl: 'public/src/js',
-          name: "main",
-          mainConfigFile: "public/src/js/main.js",
-          optimize: "uglify2",
-          out: "public/build/js/build.js"
+          name: 'main',
+          // mainConfigFile: 'public/src/js/main.js',
+          optimize: 'uglify2',
+          out: 'public/build/js/build.js',
+          paths: assets.development.scripts.paths
         }
       }
     },
@@ -139,12 +142,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-requirejs');
 
   // Custom tasks
-  grunt.registerTask('test', ['jshint', 'jasmine']);
-  grunt.registerTask('format', ['jsbeautifier', 'sass-convert']);
+  grunt.registerTask('lint', ['jshint']);
+  grunt.registerTask('test', ['lint', 'jasmine']);
+  grunt.registerTask('format', ['lint', 'jsbeautifier', 'sass-convert']);
 
   // Default tasks
   grunt.registerTask('default', [
-    'jshint',
+    'lint',
     'jasmine',
     'compass',
     'requirejs',

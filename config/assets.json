@@ -1,11 +1,17 @@
 {
   "development": {
-    "scripts": [
-      {
+    "scripts": {
+      "files": [{
         "src": "public/src/components/requirejs/require.js",
-        "main": "public/src/js/main.js"
+        "main": "main.js"
+      }],
+      "paths": {
+        "jquery": "../components/jquery/jquery",
+        "knockout": "../components/knockout/build/output/knockout-latest",
+        "director": "../components/director/build/director",
+        "globalize": "../components/globalize/lib/globalize"
       }
-    ],
+    },
     "css": [
       "public/src/components/bootstrap/docs/assets/css/bootstrap.css",
       "public/src/css/styles.css"

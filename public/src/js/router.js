@@ -1,21 +1,19 @@
 define([
-  // 'director'
-], function(director) {
+  'util/config',
+  'director'
+], function(config, director) {
 
   function init() {
 
-    var test = 'helli';
+    var routes = {
+      '/author': function () {
+        var app = require('./app');
+        console.log(app);
+      },
+    };
 
-    console.log(test);
-
-      var routes = {
-        '/author': function () {
-          console.log("author");
-        },
-      };
-
-      var router = Router(routes);
-      router.init();
+    var router = Router(routes);
+    router.init();
   }
 
   return {

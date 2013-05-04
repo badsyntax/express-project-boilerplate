@@ -1,15 +1,7 @@
-requirejs.config({
-  baseUrl: 'src/js',
-  paths: {
-    jquery: '../components/jquery/jquery',
-    knockout: '../components/knockout/build/output/knockout-latest',
-    director: '../components/director/build/director'
-  }
-});
-
-requirejs([
+define([
+  'module',
   'app'
 ],
-function(App) {
-  App.init(window.__config);
+function(module, app) {
+  app.init(module.config());
 });
