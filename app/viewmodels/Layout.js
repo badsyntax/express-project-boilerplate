@@ -1,4 +1,4 @@
-var ViewModel = require('../lib/ViewModel');
+var ViewModel = require('../../lib/ViewModel');
 
 function LayoutViewModel() {
 

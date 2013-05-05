@@ -1,28 +1,32 @@
 {
   "development": {
-    "scripts": {
-      "files": [{
-        "src": "public/src/components/requirejs/require.js",
-        "main": "main.js"
-      }],
+    "scripts": [
+      "public/src/components/requirejs/require.js"
+    ],
+    "css": [
+      "public/src/components/bootstrap/docs/assets/css/bootstrap.css",
+      "public/src/css/styles.css"
+    ],
+    "requirejs": {
+      "baseUrl": "src/js",
       "paths": {
         "jquery": "../components/jquery/jquery",
         "knockout": "../components/knockout/build/output/knockout-latest",
         "director": "../components/director/build/director",
         "globalize": "../components/globalize/lib/globalize",
         "lodash": "../components/lodash/lodash"
+      },
+      "shim": {
+        "globalize": {
+          "deps": ["jquery"],
+          "exports": "Globalize"
+        }
       }
-    },
-    "css": [
-      "public/src/components/bootstrap/docs/assets/css/bootstrap.css",
-      "public/src/css/styles.css"
-    ]
+    }
   },
   "production": {
     "scripts": [
-      {
-        "src": "public/build/js/scripts.min.js"
-      }
+      "public/build/js/scripts.min.js"
     ],
     "css": [
       "public/build/css/styles.min.css"

@@ -10,5 +10,5 @@ define([
     Config: Config,
     Events: Events,
     inherits: inherits
-  }
-})
+  };
+});

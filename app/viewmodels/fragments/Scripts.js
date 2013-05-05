@@ -1,6 +1,5 @@
-var ViewModel = require('../../lib/ViewModel');
-var View = require('../../lib/View');
-
+var _ = require('lodash');
+var ViewModel = require('../../../lib/ViewModel');
 var assets = require('../../config/assets.json');
 
 function ScriptsViewModel() {
@@ -29,20 +28,13 @@ ScriptsViewModel.prototype.getScripts = function() {
 };
 
 ScriptsViewModel.prototype.getRequireConfig = function() {
-  return JSON.stringify({
-    baseUrl: 'src/js',
-    paths: assets[this.env].scripts.paths,
-    shim: {
-      globalize: {
-        deps: ['jquery'],
-        exports: 'Globalize'
-      }
-    },
+  return JSON.stringify(_.merge(
+    assets['development'].requirejs,
     config: {
       bootstrap: {
         culture: 'en-GB'
       }
-    }
+    })
   }, null, 2);
 };
 

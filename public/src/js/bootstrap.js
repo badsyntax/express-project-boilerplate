@@ -13,5 +13,5 @@ define('bootstrap', [
   app.globalize.culture(app.config.get('culture') || 'en-GB');
 
   /* Route to controller */
-  router.init(app.config.get('controller'));
+  router.init();
 });

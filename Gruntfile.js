@@ -1,22 +1,15 @@
+var _ = require('lodash');
+
 module.exports = function(grunt) {
 
   // Load config
   var bower = grunt.file.readJSON('bower.json');
   var pkg = grunt.file.readJSON('package.json');
-  var assets = grunt.file.readJSON('config/assets.json');
+  var assets = grunt.file.readJSON('app/config/assets.json');
 
   // Project configuration
   grunt.initConfig({
     pkg: pkg,
-    uglify: {
-      options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-      },
-      build: {
-        src: assets.development.scripts,
-        dest: assets.production.scripts[0]
-      }
-    },
     compass: {
       dev: {
         options: {
@@ -32,26 +25,37 @@ module.exports = function(grunt) {
         'viewmodels/**/*.js',
         'routes/**/*.js',
         'models/**/*.js',
+        'tests/specs/**/*.js',
         'public/tests/specs/**/*.js',
         'Gruntfile.js',
-        'public/src/js/main.js',
-        'public/src/js/modules/**/*.js'
+        'public/src/js/**/*.js'
       ],
       options: {
         globals: {
-          jQuery: true,
           console: true,
           module: true,
           document: true
         }
       }
     },
+    jasmine_node: {
+      specNameMatcher: "*.js",
+      projectRoot: "tests/specs",
+      requirejs: false,
+      forceExit: true
+    },
     jasmine: {
-      src: assets.development.scripts.files[0].src,
+      src: '../' + assets.development.scripts,
       options: {
-        specs: 'public/tests/spec/**/*.js',
-        amd: true,
-        keepRunner: false
+        specs: [
+          'public/tests/specs/**/*.js'
+        ],
+        template: require('grunt-template-jasmine-requirejs'),
+        templateOptions: {
+          requireConfig: {
+            baseUrl: 'public/src/js'
+          }
+        }
       }
     },
     watch: {
@@ -70,16 +74,14 @@ module.exports = function(grunt) {
     },
     requirejs: {
       compile: {
-        options: {
+        options: _.merge(assets.development.requirejs, {
           baseUrl: 'public/src/js',
-          name: 'app',
-          // mainConfigFile: 'public/src/js/main.js',
+          name: 'bootstrap',
           optimize: 'uglify2',
           out: 'public/build/js/build.js',
-          paths: assets.development.scripts.paths,
           useStrict: false,
           findNestedDependencies: true
-        }
+        })
       }
     },
     cssmin: {
@@ -131,27 +133,26 @@ module.exports = function(grunt) {
   });
 
   // Load the task plugins
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
+  grunt.loadNpmTasks('grunt-template-jasmine-requirejs');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-jsbeautifier');
   grunt.loadNpmTasks('grunt-sass-convert');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
+  grunt.loadNpmTasks('grunt-jasmine-node');
 
   // Custom tasks
   grunt.registerTask('lint', ['jshint']);
-  grunt.registerTask('test', ['lint', 'jasmine']);
+  grunt.registerTask('test', ['lint', 'jasmine', 'jasmine_node']);
   grunt.registerTask('format', ['lint', 'jsbeautifier', 'sass-convert']);
+  grunt.registerTask('compile', ['compass', 'requirejs', 'cssmin']);
 
   // Default tasks
   grunt.registerTask('default', [
-    'lint',
-    'jasmine',
-    'compass',
-    'requirejs',
-    'cssmin'
+    'test',
+    'compile'
   ]);
 };

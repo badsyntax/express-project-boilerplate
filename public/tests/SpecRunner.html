@@ -10,37 +10,41 @@
   <script type="text/javascript" src="../src/components/jasmine/lib/jasmine-core/jasmine.js"></script>
   <script type="text/javascript" src="../src/components/jasmine/lib/jasmine-core/jasmine-html.js"></script>
 
-  <!-- include spec files here... -->
-
-  <!-- include source files here... -->
-
-  <script type="text/javascript">
-    (function() {
-      var jasmineEnv = jasmine.getEnv();
-      jasmineEnv.updateInterval = 1000;
-
-      var trivialReporter = new jasmine.TrivialReporter();
-
-      jasmineEnv.addReporter(trivialReporter);
-
-      jasmineEnv.specFilter = function(spec) {
-        return trivialReporter.specFilter(spec);
-      };
-
-      var currentWindowOnload = window.onload;
-
-      window.onload = function() {
-        if (currentWindowOnload) {
-          currentWindowOnload();
+  <script src="../src/components/requirejs/require.js"></script>
+  <script>
+    requirejs.config({
+      "baseUrl": "../src/js",
+      "paths": {
+        "jquery": "../components/jquery/jquery",
+        "knockout": "../components/knockout/build/output/knockout-latest",
+        "director": "../components/director/build/director",
+        "globalize": "../components/globalize/lib/globalize",
+        "lodash": "../components/lodash/lodash"
+      },
+      "shim": {
+        "globalize": {
+          "deps": [
+            "jquery"
+          ],
+          "exports": "Globalize"
         }
-        execJasmine();
-      };
-
-      function execJasmine() {
-        jasmineEnv.execute();
+      },
+      "config": {
+        "bootstrap": {
+          "culture": "en-GB"
+        }
       }
+    });
+    require([
+      "specs/util/eventemitter.spec.js"
+    ], function(){
 
-    })();
+      jasmine.getEnv().addReporter(
+          new jasmine.HtmlReporter()
+      );
+      // Run all the loaded test specs.
+      jasmine.getEnv().execute();
+    });
   </script>
 
 </head>

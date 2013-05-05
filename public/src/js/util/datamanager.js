@@ -71,9 +71,9 @@ define([
       if (key !== undefined) {
         return delete data[key];
       }
-      for (var key in data) {
-        if (data.hasOwnProperty(key)) {
-          delete data[key];
+      for (var prop in data) {
+        if (data.hasOwnProperty(prop)) {
+          delete data[prop];
         }
       }
     }

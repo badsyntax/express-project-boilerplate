@@ -11,4 +11,4 @@ define(function() {
   };
 
   return BaseController;
-})
+});

@@ -49,12 +49,12 @@ define(function() {
     var events = (this.events[type] || []).slice();
 
     if (events.length) {
-      while (event = events.shift()) {
+      while ((event = events.shift())) {
         event.call(this, data);
       }
     }
     return this;
-  }
+  };
 
   return Emitter;
 });

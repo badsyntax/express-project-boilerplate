@@ -1,8 +1,9 @@
 define([
   'app',
+  'director',
   // Be sure to require all controllers here
   'controllers/home'
-], function(app, HomeController) {
+], function(app, director, HomeController) {
 
   'use strict';
 
@@ -21,7 +22,7 @@ define([
         '': this.controller.bind(this, 'home', HomeController)
       };
 
-      this.router = Router(this.routes)
+      this.router = new director.Router(this.routes)
       .configure(this.config)
       .init();
 

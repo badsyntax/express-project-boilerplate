@@ -1,5 +1,5 @@
-var ControllerLayout = require('../lib/Controller/ControllerLayout');
-var ViewModel = require('../lib/ViewModel');
+var ControllerLayout = require('../../lib/Controller/ControllerLayout');
+var ViewModel = require('../../lib/ViewModel');
 var q = require('q');
 var PersonModel = require('../models/Person');
 

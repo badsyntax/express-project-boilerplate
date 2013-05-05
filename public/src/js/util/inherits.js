@@ -4,7 +4,7 @@ define(function() {
 
   function ecma3(ctor, superCtor) {
     noop.prototype = superCtor.prototype;
-    ctor.prototype = new noop;
+    ctor.prototype = new noop();
     ctor.prototype.constructor = superCtor;
   }
 
