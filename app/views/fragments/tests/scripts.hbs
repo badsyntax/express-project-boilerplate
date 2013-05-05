@@ -1,0 +1,18 @@
+{{#each scripts}}
+  <script src="../{{this}}"></script>
+{{/each}}
+<script>
+  requirejs.config({{{requireConfig}}});
+
+  // Load spec files here
+  require([
+    "specs/util/eventemitter.spec.js"
+  ], function(){
+
+    jasmine.getEnv().addReporter(
+        new jasmine.HtmlReporter()
+    );
+    // Run all the loaded test specs.
+    jasmine.getEnv().execute();
+  });
+</script>

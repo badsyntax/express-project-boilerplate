@@ -3,14 +3,13 @@ define([
   'director',
   // Be sure to require all controllers here
   'controllers/home'
-], function(app, director, HomeController) {
+], function(app, Router, HomeController) {
 
   'use strict';
 
-  var controller;
-  var controllers = {};
-
   return {
+    controller: null,
+    controllers: {},
     init: function() {
 
       this.config = {
@@ -19,10 +18,10 @@ define([
       };
 
       this.routes = {
-        '': this.controller.bind(this, 'home', HomeController)
+        '': this.runController.bind(this, 'home', HomeController)
       };
 
-      this.router = new director.Router(this.routes)
+      this.router = new Router(this.routes)
       .configure(this.config)
       .init();
 
@@ -31,22 +30,22 @@ define([
         this.router.setRoute('');
       }
     },
-    controller: function(name, Controller) {
+    runController: function(name, Controller) {
 
       // Destroy the previous controller
-      if (controller && controller.destroy) {
-        controller.destroy();
+      if (this.controller && this.controller.destroy) {
+        this.controller.destroy();
       }
       // Create a new instance of the controller
-      if (!controllers[name]) {
-        controllers[name] = new Controller();
+      if (!this.controllers[name]) {
+        this.controllers[name] = new Controller();
       }
       // Restore the controller
-      else if (controllers[name].refresh) {
-        controllers[name].restore();
+      else if (this.controllers[name].refresh) {
+        this.controllers[name].restore();
       }
       // Set as current controller
-      controller = controllers[name];
+      this.controller = this.controllers[name];
     },
     before: function() {
       app.events.emit('route.before');

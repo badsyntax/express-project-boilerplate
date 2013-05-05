@@ -1,14 +1,14 @@
 {
   "development": {
     "scripts": [
-      "public/src/components/requirejs/require.js"
+      "/public/src/components/requirejs/require.js"
     ],
     "css": [
-      "public/src/components/bootstrap/docs/assets/css/bootstrap.css",
-      "public/src/css/styles.css"
+      "/public/src/components/bootstrap/docs/assets/css/bootstrap.css",
+      "/public/src/css/styles.css"
     ],
     "requirejs": {
-      "baseUrl": "src/js",
+      "baseUrl": "/src/js",
       "paths": {
         "jquery": "../components/jquery/jquery",
         "knockout": "../components/knockout/build/output/knockout-latest",
@@ -30,10 +30,10 @@
   },
   "production": {
     "scripts": [
-      "public/build/js/scripts.min.js"
+      "/public/build/js/scripts.min.js"
     ],
     "css": [
-      "public/build/css/styles.min.css"
+      "/public/build/css/styles.min.css"
     ]
   }
 }

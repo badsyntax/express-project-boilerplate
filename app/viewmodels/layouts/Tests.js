@@ -1,4 +1,4 @@
-var ViewModel = require('../../lib/ViewModel');
+var ViewModel = require('../../../lib/ViewModel');
 
 function LayoutViewModel() {
 
@@ -14,7 +14,7 @@ function LayoutViewModel() {
 require('util').inherits(LayoutViewModel, ViewModel);
 
 LayoutViewModel.prototype.getScripts = function() {
-  return ViewModel.factory(this.controller, 'fragments/scripts').render();
+  return ViewModel.factory(this.controller, 'fragments/tests/scripts').render();
 };
 
 LayoutViewModel.prototype.getStyles = function() {
