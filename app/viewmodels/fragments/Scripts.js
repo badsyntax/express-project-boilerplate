@@ -6,12 +6,9 @@ function ScriptsViewModel() {
 
   ViewModel.apply(this, arguments);
 
-  this.pathRegex = /public\/(build\/)?/;
-  this.env = this.app.get('env');
-
   this.setData({
-    env: this.env,
-    development: (this.env === 'development'),
+    env: this.app.get('env'),
+    development: (this.app.get('env') === 'development'),
     scripts: this.getScripts(),
     requireConfig: this.getRequireConfig()
   });
@@ -20,22 +17,20 @@ function ScriptsViewModel() {
 require('util').inherits(ScriptsViewModel, ViewModel);
 
 ScriptsViewModel.prototype.getScripts = function() {
-  return assets[this.env].scripts.files.map(function(script) {
-    script.src = script.src.replace(this.pathRegex, '');
-    script.main = script.main.replace(this.pathRegex, '');
-    return script;
+  return assets[this.env].scripts.map(function(script) {
+    return script.replace(/public\/(build\/)?/, '');
   }.bind(this));
 };
 
 ScriptsViewModel.prototype.getRequireConfig = function() {
   return JSON.stringify(_.merge(
-    assets['development'].requirejs,
-    config: {
-      bootstrap: {
-        culture: 'en-GB'
+    assets['development'].requirejs, {
+      config: {
+        bootstrap: {
+          culture: 'en-GB'
+        }
       }
-    })
-  }, null, 2);
+    }), null, 2);
 };
 
 module.exports = ScriptsViewModel;

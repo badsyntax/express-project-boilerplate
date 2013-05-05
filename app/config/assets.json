@@ -20,6 +20,10 @@
         "globalize": {
           "deps": ["jquery"],
           "exports": "Globalize"
+        },
+        "director": {
+          "deps": ["jquery"],
+          "exports": "Router"
         }
       }
     }
