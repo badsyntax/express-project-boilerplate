@@ -2,8 +2,9 @@ define([
   'app',
   'director',
   // Be sure to require all controllers here
-  'controllers/home'
-], function(app, Router, HomeController) {
+  'controllers/home',
+  'controllers/about'
+], function(app, Router, HomeController, AboutController) {
 
   'use strict';
 
@@ -18,12 +19,13 @@ define([
       };
 
       this.routes = {
-        '': this.runController.bind(this, 'home', HomeController)
+        '':      this.runController.bind(this, 'home', HomeController),
+        'about': this.runController.bind(this, 'about', AboutController)
       };
 
       this.router = new Router(this.routes)
-      .configure(this.config)
-      .init();
+        .configure(this.config)
+        .init();
 
       // FIXME: Set the default route to home
       if (!this.router.getRoute()) {
@@ -36,15 +38,16 @@ define([
       if (this.controller && this.controller.destroy) {
         this.controller.destroy();
       }
-      // Create a new instance of the controller
+      // If not previously created, create a new instance of the controller
       if (!this.controllers[name]) {
         this.controllers[name] = new Controller();
       }
-      // Restore the controller
-      else if (this.controllers[name].refresh) {
+      // Else restore the previously created controller
+      else if (this.controllers[name].restore) {
         this.controllers[name].restore();
       }
-      // Set as current controller
+
+      // Set the controller as the current controller
       this.controller = this.controllers[name];
     },
     before: function() {

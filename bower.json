@@ -1,7 +1,6 @@
 {
   "name": "project-boilerplate",
   "version": "0.0.1",
-  "main": "src/main.js",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -15,6 +14,8 @@
     "director": "1.2",
     "bootstrap": "2.3",
     "globalize": "0.1",
-    "lodash": "~1.2.1"
-  }
+    "lodash": "~1.2.1",
+    "knockout-mapping": "~2.4.1"
+  },
+  "devDependencies": {}
 }

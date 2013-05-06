@@ -1,3 +1,11 @@
 <h1>{{title}}</h1>
 
 <p>Some home page copy</p>
+
+<nav id="tabs">
+   <ul data-bind="foreach: pages">
+    <li>
+      <a data-bind="attr: { href: '#/' + url() }, text: name"></a>
+    </li>
+  </ul>
+</nav>
