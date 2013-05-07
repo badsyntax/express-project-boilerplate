@@ -1,6 +1,11 @@
 # express-project-boilerplate [![Build Status](https://travis-ci.org/badsyntax/express-project-boilerplate.png)](https://travis-ci.org/badsyntax/express-project-boilerplate)
 
-A starter project for building a modern JavaScript web application. 
+A starter project for building modern JavaScript web applications. 
+
+This project is not intended for others to use, and thus I can offer no support. Feel free to have a 
+look around and steal any code you like that isn't copyrighted. 
+
+I built this project as as a starter application for future web projects; as a reference; and as a means to learn new and exciting web technologies.
 
 This project uses the following technologies:  
 
@@ -225,6 +230,8 @@ MyViewModel.prototype.getPeople = function() {
 ```
 
 ## Sublime Text config:
+
+This is the recommended ST2 user settings:
 
 ```javascript
 {
