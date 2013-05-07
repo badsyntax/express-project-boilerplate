@@ -1,7 +1,8 @@
 define([
   'knockout',
-  'knockout-mapping'
-], function(ko, koMapping) {
+  'knockout-mapping',
+  'jquery'
+], function(ko, koMapping, $) {
 
   'use strict';
 
@@ -15,7 +16,7 @@ define([
 
   BaseViewModel.prototype.setData = function(data) {
     koMapping.fromJS(data, null, this);
-  }
+  };
 
   BaseViewModel.prototype.rendered = function() {};
 
