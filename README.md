@@ -1,6 +1,8 @@
-# express-project-boilerplate
+# express-project-boilerplate [![Build Status](https://travis-ci.org/badsyntax/express-project-boilerplate.png)](https://travis-ci.org/badsyntax/express-project-boilerplate)
 
-A starter project for building a modern JavaScript web application. This project uses the following technologies:  
+A starter project for building a modern JavaScript web application. 
+
+This project uses the following technologies:  
 
 * [nodejs](http://nodejs.org/)
 * [npm](https://npmjs.org/)
