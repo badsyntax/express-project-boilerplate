@@ -39,9 +39,10 @@ module.exports = function(grunt) {
       }
     },
     jasmine_node: {
-      specNameMatcher: "*.js",
-      projectRoot: "tests/specs",
-      requirejs: false,
+      projectRoot: '.',
+      matchall: true,
+      projectRoot: 'tests/specs',
+      requirejs: true,
       forceExit: true
     },
     jasmine: {
