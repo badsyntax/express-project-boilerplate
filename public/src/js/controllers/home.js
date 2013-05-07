@@ -2,13 +2,14 @@ define([
   'knockout',
   'util/index',
   './base',
+  'viewmodels/base',
   'viewmodels/home'
-], function(ko, util, BaseController, HomeViewModel) {
+], function(ko, util, BaseController, BaseViewModel, HomeViewModel) {
 
   'use strict';
 
   function HomeController() {
-    console.log('Home Controller');
+    BaseController.apply(this, arguments);
     this.initViewModels();
   }
 
@@ -16,7 +17,6 @@ define([
 
   HomeController.prototype.initViewModels = function(first_argument) {
     this.viewModel = new HomeViewModel();
-    ko.applyBindings(this.viewModel);
   };
 
   return HomeController;

@@ -2,10 +2,14 @@
 
 <p>Some home page copy</p>
 
-<nav id="tabs">
+<div id="home" data-bind="template: { name: 'home-template' }"></div>
+
+<script type="text/html" id="home-template">
+<nav class="tabs">
    <ul data-bind="foreach: pages">
     <li>
       <a data-bind="attr: { href: '#/' + url() }, text: name"></a>
     </li>
   </ul>
 </nav>
+</script>

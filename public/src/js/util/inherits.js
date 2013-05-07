@@ -1,6 +1,6 @@
 define(function() {
 
-  function noop(){}
+  function noop() {}
 
   function ecma3(ctor, superCtor) {
     noop.prototype = superCtor.prototype;
@@ -10,7 +10,10 @@ define(function() {
 
   function ecma5(ctor, superCtor) {
     ctor.prototype = Object.create(superCtor.prototype, {
-      constructor: { value: ctor, enumerable: false }
+      constructor: {
+        value: ctor,
+        enumerable: false
+      }
     });
   }
 

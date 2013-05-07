@@ -1,25 +1,33 @@
 define([
+  'util/index',
   'knockout',
-  'knockout-mapping',
   // UI components
   'components/accordian',
-  'components/tabs'
-], function(ko, koMapping, Accordian, Tabs) {
+  'components/tabs',
+  './base'
+], function(util, ko, Accordian, Tabs, BaseViewModel) {
 
   'use strict';
 
   function HomeViewModel() {
-    this.initUIComponents();
+    BaseViewModel.call(this, '#home');
     this.populate();
+    this.bind();
+    this.rendered();
   }
+  util.inherits(HomeViewModel, BaseViewModel);
 
-  HomeViewModel.prototype.initUIComponents = function() {
-    this.tabs = new Tabs();
-    this.accordian = new Accordian();
+  HomeViewModel.prototype.rendered = function() {
+    this.tabs = new Tabs(
+      this.view.find('.tabs')
+    );
+    this.accordian = new Accordian(
+      this.view.find('.accordian')
+    );
   };
 
   HomeViewModel.prototype.populate = function() {
-    koMapping.fromJS({
+    this.setData({
       pages: [{
         name: 'Home',
         url: ''
