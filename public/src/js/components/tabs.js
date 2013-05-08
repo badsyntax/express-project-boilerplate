@@ -4,9 +4,10 @@
  * */
 
 define([
+    'jquery',
     'util/inherits',
     './base'
-], function(inherits, BaseComponent) {
+], function($, inherits, BaseComponent) {
 
   'use strict';
 
@@ -35,7 +36,7 @@ define([
   Tabs.prototype.onSelectTab = function(index) {
     this.onTabClick({
         currentTarget: this.tabs.eq(index).find('a')[0]
-    })
+    });
   };
 
   Tabs.prototype.onTabClick = function(e) {
