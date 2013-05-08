@@ -2,13 +2,12 @@ define(function() {
 
   'use strict';
 
-  function BaseController() {
-
+  function BaseController(router) {
+    this.router = router;
   }
 
-  BaseController.prototype.destroy = function() {
-    console.log('Controller destroy');
-  };
+  BaseController.prototype.setRoutes = function() {};
+  BaseController.prototype.destroy = function() {};
 
   return BaseController;
 });

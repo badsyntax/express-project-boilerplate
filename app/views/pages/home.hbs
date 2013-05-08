@@ -5,14 +5,14 @@
 <div id="home">
   <!-- ko stopBinding: true -->
   <nav id="nav">
-     <ul data-bind="foreach: pages">
-      <li>
-        <a data-bind="attr: { href: '#/' + url() }, text: name"></a>
-      </li>
+     <ul class="nav nav-pills" data-bind="template: { name: 'nav-item', foreach: pages }">
     </ul>
   </nav>
   <!-- /ko -->
 </div>
 
-<script type="text/html" id="home-template">
+<script type="text/html" id="nav-item">
+  <li>
+    <a data-bind="attr: { href: '#/' + url() }, text: name"></a>
+  </li>
 </script>

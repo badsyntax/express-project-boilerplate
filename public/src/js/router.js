@@ -9,47 +9,37 @@ define([
 
   'use strict';
 
-  var controller;
+  var router;
+
+  function init() {
+    createRouter();
+    createControllers();
+
+    // FIXME: Set the default route to home
+    if (!router.getRoute()) {
+      router.setRoute('');
+    }
+  }
+
+  function createRouter() {
+    router = new Director()
+    .configure({
+      delimiter: '/',
+      before: beforeRoute
+    })
+    .init();
+  }
+
+  function createControllers() {
+    new HomeController(router);
+    new AboutController(router);
+  }
+
+  function beforeRoute() {
+    Events.emit('route.before');
+  }
 
   return {
-    init: function() {
-
-      this.config = {
-        delimiter: '/',
-        before: this.beforeRoute.bind(this)
-      };
-
-      this.routes = {
-        '':      this.runController.bind(this, HomeController),
-        'about': this.runController.bind(this, AboutController)
-      };
-
-      this.router = new Director(this.routes)
-        .configure(this.config)
-        .init();
-
-      // FIXME: Set the default route to home
-      if (!this.router.getRoute()) {
-        this.router.setRoute('');
-      }
-    },
-    runController: function(Controller) {
-
-      // Don't do anything if executing the same controller
-      if (controller && (controller instanceof Controller)) {
-        return;
-      }
-
-      // Destroy the previous controller
-      if (controller && controller.destroy) {
-        controller.destroy();
-      }
-
-      // Create a new instance of the controller
-      controller = new Controller();
-    },
-    beforeRoute: function() {
-      Events.emit('route.before');
-    }
+    init: init
   };
 });

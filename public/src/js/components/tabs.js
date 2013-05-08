@@ -13,6 +13,9 @@ define([
 
   function Tabs(container) {
     BaseComponent.apply(this, arguments);
+    this.config = {
+      activeClass: 'active'
+    };
     this.setup();
     this.bindEvents();
     this.init();
@@ -45,8 +48,8 @@ define([
 
   Tabs.prototype.onTabClick = function(e) {
     var element = $(e.currentTarget);
-    this.tabs.removeClass('selected');
-    element.parent().addClass('selected');
+    this.tabs.removeClass(this.config.activeClass);
+    element.parent().addClass(this.config.activeClass);
   };
 
   return Tabs;

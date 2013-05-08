@@ -3,18 +3,23 @@ define([
   'knockout',
   './base',
   'viewmodels/home'
-], function(inherits, ko, BaseController, HomeViewModel) {
+], function(inherits, ko, PageController, HomeViewModel) {
 
   'use strict';
 
   function HomeController() {
-    BaseController.apply(this, arguments);
-    this.initViewModels();
-  }
-  inherits(HomeController, BaseController);
-
-  HomeController.prototype.initViewModels = function() {
+    PageController.apply(this, arguments);
+    this.setRoutes();
     this.viewModel = new HomeViewModel('#home');
+  }
+  inherits(HomeController, PageController);
+
+  HomeController.prototype.setRoutes = function() {
+    this.router.on('', this.execute);
+  };
+
+  HomeController.prototype.execute = function() {
+    // alert('run');
   };
 
   return HomeController;
