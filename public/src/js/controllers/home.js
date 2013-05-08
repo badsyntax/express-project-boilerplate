@@ -1,10 +1,9 @@
 define([
+  'util/inherits',
   'knockout',
-  'util/index',
   './base',
-  'viewmodels/base',
   'viewmodels/home'
-], function(ko, util, BaseController, BaseViewModel, HomeViewModel) {
+], function(inherits, ko, BaseController, HomeViewModel) {
 
   'use strict';
 
@@ -12,10 +11,9 @@ define([
     BaseController.apply(this, arguments);
     this.initViewModels();
   }
+  inherits(HomeController, BaseController);
 
-  util.inherits(HomeController, BaseController);
-
-  HomeController.prototype.initViewModels = function(first_argument) {
+  HomeController.prototype.initViewModels = function() {
     this.viewModel = new HomeViewModel('#home');
   };
 

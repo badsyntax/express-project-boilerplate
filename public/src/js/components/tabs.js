@@ -15,10 +15,14 @@ define([
     BaseComponent.apply(this, arguments);
     this.setup();
     this.bindEvents();
-    this.trigger('select', 0); // select the first tab
+    this.init();
   }
 
   inherits(Tabs, BaseComponent);
+
+  Tabs.prototype.init = function() {
+    this.trigger('select', 0); // select the first tab
+  };
 
   Tabs.prototype.setup = function() {
     this.tabs = this.container.find('>ul>li');

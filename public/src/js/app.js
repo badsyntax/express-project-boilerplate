@@ -1,13 +1,16 @@
 define('app', [
+  'knockout',
+  'util/knockoutbindings',
   'module',
   'util/config',
   'globalize',
   'router'
-], function (module, Config, Globalize, Router) {
+], function (ko, bindings, module, Config, Globalize, Router) {
+
 
   'use strict';
 
-  /* Set global app config */
+  /* Set app config */
   Config.set(module.config());
 
   /* Set globalization culture */

@@ -2,14 +2,17 @@
 
 <p>Some home page copy</p>
 
-<div id="home" data-bind="template: { name: 'home-template' }"></div>
+<div id="home">
+  <!-- ko stopBinding: true -->
+  <nav id="nav">
+     <ul data-bind="foreach: pages">
+      <li>
+        <a data-bind="attr: { href: '#/' + url() }, text: name"></a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /ko -->
+</div>
 
 <script type="text/html" id="home-template">
-<nav class="tabs">
-   <ul data-bind="foreach: pages">
-    <li>
-      <a data-bind="attr: { href: '#/' + url() }, text: name"></a>
-    </li>
-  </ul>
-</nav>
 </script>

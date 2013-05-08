@@ -1,11 +1,11 @@
 define([
-  'util/index',
+  'util/inherits',
   'knockout',
   // UI components
   'components/accordian',
-  'components/tabs',
-  './base'
-], function(util, ko, Accordian, Tabs, BaseViewModel) {
+  './base',
+  './fragments/nav'
+], function(inherits, ko, Accordian, BaseViewModel, NavViewModel) {
 
   'use strict';
 
@@ -14,42 +14,24 @@ define([
     this.setup();
     this.bind();
     this.populate();
-    this.rendered();
   }
-  util.inherits(HomeViewModel, BaseViewModel);
+  inherits(HomeViewModel, BaseViewModel);
 
-  HomeViewModel.prototype.rendered = function() {
-
-    // Create tabs component
-    this.tabs = new Tabs(
-      this.view.find('.tabs')
-    );
-
-    // Create accordian component
-    this.accordian = new Accordian(
-      this.view.find('.accordian')
-    );
-  };
-
-  // Setup observables
   HomeViewModel.prototype.setup = function() {
+
+    // Create child ViewModels
+    this.navViewModel = new NavViewModel('#nav');
+
+    // Create the observables with default data
     this.setData({
-      pages: [],
-      technologies: [],
-      pendingRequest: false
+      title: 'Home',
+      technologies: []
     });
   };
 
   // Add data to observables
   HomeViewModel.prototype.populate = function() {
     this.setData({
-      pages: [{
-        name: 'Home',
-        url: ''
-      }, {
-        name: 'About',
-        url: 'about'
-      }],
       technologies: [{
         name: 'Server side',
         items: [{

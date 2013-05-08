@@ -1,6 +1,3 @@
-/**
- * Basic event emitter object.
- */
 define(function() {
 
   function Emitter() {

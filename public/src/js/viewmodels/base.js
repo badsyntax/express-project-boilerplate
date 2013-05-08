@@ -13,7 +13,7 @@ define([
 
   BaseViewModel.prototype.bind = function() {
     if (!this.view.length) {
-      throw new Error('Unable to bind ViewModel: View not found: ' + this.viewSelector);
+      throw new Error('Unable to bind ViewModel to \'' + this.viewSelector + '\'');
     }
     ko.applyBindings(this, this.view[0]);
   };

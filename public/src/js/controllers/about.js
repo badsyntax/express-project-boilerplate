@@ -1,8 +1,8 @@
 define([
   'knockout',
-  'util/index',
+  'util/inherits',
   './base'
-], function(ko, util, BaseController) {
+], function(ko, inherits, BaseController) {
 
   'use strict';
 
@@ -11,7 +11,7 @@ define([
     this.initViewModels();
   }
 
-  util.inherits(AboutController, BaseController);
+  inherits(AboutController, BaseController);
 
   AboutController.prototype.initViewModels = function() {
   };
