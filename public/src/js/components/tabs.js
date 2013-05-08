@@ -4,12 +4,11 @@ define(function() {
 
   function Tabs(container) {
     this.container = container;
-    console.log(this.container);
-    this.initUI();
+    this.init();
   }
 
-  Tabs.prototype.initUI = function() {
-    this.container.addClass('tabssdsd');
+  Tabs.prototype.init = function() {
+    this.container.addClass('ui-tabs');
   };
 
   return Tabs;

@@ -7,7 +7,7 @@ define([
   'use strict';
 
   function BaseViewModel(viewSelector) {
-    this.view = $(this.viewSelector);
+    this.view = $(viewSelector);
   }
 
   BaseViewModel.prototype.bind = function() {

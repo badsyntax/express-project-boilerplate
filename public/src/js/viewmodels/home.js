@@ -10,22 +10,37 @@ define([
   'use strict';
 
   function HomeViewModel() {
-    BaseViewModel.call(this, '#home');
-    this.populate();
+    BaseViewModel.apply(this, arguments);
+    this.setup();
     this.bind();
+    this.populate();
     this.rendered();
   }
   util.inherits(HomeViewModel, BaseViewModel);
 
   HomeViewModel.prototype.rendered = function() {
+
+    // Create tabs component
     this.tabs = new Tabs(
       this.view.find('.tabs')
     );
+
+    // Create accordian component
     this.accordian = new Accordian(
       this.view.find('.accordian')
     );
   };
 
+  // Setup observables
+  HomeViewModel.prototype.setup = function() {
+    this.setData({
+      pages: [],
+      technologies: [],
+      pendingRequest: false
+    });
+  };
+
+  // Add data to observables
   HomeViewModel.prototype.populate = function() {
     this.setData({
       pages: [{

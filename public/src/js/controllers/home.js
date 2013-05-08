@@ -16,7 +16,7 @@ define([
   util.inherits(HomeController, BaseController);
 
   HomeController.prototype.initViewModels = function(first_argument) {
-    this.viewModel = new HomeViewModel();
+    this.viewModel = new HomeViewModel('#home');
   };
 
   return HomeController;
