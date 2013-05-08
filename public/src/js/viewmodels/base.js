@@ -7,10 +7,14 @@ define([
   'use strict';
 
   function BaseViewModel(viewSelector) {
+    this.viewSelector = viewSelector;
     this.view = $(viewSelector);
   }
 
   BaseViewModel.prototype.bind = function() {
+    if (!this.view.length) {
+      throw new Error('Unable to bind ViewModel: View not found: ' + this.viewSelector);
+    }
     ko.applyBindings(this, this.view[0]);
   };
 
