@@ -81,5 +81,20 @@ define([
 
       expect(emitter.events.myevent).toBe(undefined);
     });
+
+    it('Provides a trigger API method', function() {
+
+      expect(typeof emitter.trigger).toBe('function');
+
+      var handler1 = jasmine.createSpy();
+      var handler2 = jasmine.createSpy();
+
+      emitter.on('myevent', handler1);
+      emitter.on('myevent', handler2);
+      emitter.trigger('myevent');
+
+      expect(handler1).toHaveBeenCalled();
+      expect(handler2).toHaveBeenCalled();
+    });
   });
 });

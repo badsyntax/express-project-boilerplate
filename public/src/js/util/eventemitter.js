@@ -56,5 +56,7 @@ define(function() {
     return this;
   };
 
+  Emitter.prototype.trigger = Emitter.prototype.emit;
+
   return Emitter;
 });
