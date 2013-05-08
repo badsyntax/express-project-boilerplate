@@ -74,7 +74,7 @@ Here are the individual grunt tasks you can run:
 * `grunt jsbeautifier`
 * `grunt sass-convert`
 
-## MVC
+## Server-side MVC
 
 This system extends express to provide a more verbose and automated MVC system. A router handler is used to
 route requests to controllers. Controllers create the ViewModels and handle user input. ViewModels retrieve data
@@ -228,6 +228,10 @@ MyViewModel.prototype.getPeople = function() {
   return deferred.promise;
 };
 ```
+
+## Client-side MVC
+
+TODO
 
 ## Sublime Text config:
 
