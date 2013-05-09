@@ -11,9 +11,7 @@
       "baseUrl": "/src/js",
       "paths": {
         "jquery": "../components/jquery/jquery",
-        "knockout": "../components/knockout/build/output/knockout-latest",
-        "knockout-mapping": "../components/knockout-mapping/build/output/knockout.mapping-latest",
-        "director": "../components/director/build/director",
+        "backbone": "../components/backbone/backbone",
         "globalize": "../components/globalize/lib/globalize",
         "lodash": "../components/lodash/lodash"
       },
