@@ -13,8 +13,8 @@ module.exports = function(grunt) {
     compass: {
       dev: {
         options: {
-          sassDir: 'public/src/scss',
-          cssDir: 'public/src/css'
+          sassDir: 'app/public/src/scss',
+          cssDir: 'app/public/src/css'
         }
       }
     },
@@ -26,9 +26,9 @@ module.exports = function(grunt) {
         'routes/**/*.js',
         'models/**/*.js',
         'tests/specs/**/*.js',
-        'public/tests/specs/**/*.js',
+        'app/public/tests/specs/**/*.js',
         'Gruntfile.js',
-        'public/src/js/**/*.js'
+        'app/public/src/js/**/*.js'
       ],
       options: {
         globals: {
@@ -39,34 +39,37 @@ module.exports = function(grunt) {
       }
     },
     jasmine_node: {
-      matchall: true,
-      projectRoot: 'tests/specs',
-      requirejs: true,
-      forceExit: true
+      forceExit: false,
+      match: '.',
+      matchall: false,
+      extensions: 'js',
+      specNameMatcher: 'spec',
+      projectRoot:'./app/tests/specs',
+      verbose: false
     },
     jasmine: {
       src: '../' + assets.development.scripts,
       options: {
         specs: [
-          'public/tests/specs/**/*.js'
+          'app/public/tests/specs/**/*.js'
         ],
         template: require('grunt-template-jasmine-requirejs'),
         templateOptions: {
           requireConfig: {
-            baseUrl: 'public/src/js'
+            baseUrl: 'app/public/src/js'
           }
         }
       }
     },
     watch: {
       scss: {
-        files: ['public/src/scss/**/*.scss'],
+        files: ['app/public/src/scss/**/*.scss'],
         tasks: ['compass']
       }
     },
     'sass-convert': {
       files: {
-        src: ['public/src/scss/**/*.scss']
+        src: ['app/public/src/scss/**/*.scss']
       },
       options: {
         indent: 2
@@ -75,10 +78,10 @@ module.exports = function(grunt) {
     requirejs: {
       compile: {
         options: _.merge(assets.development.requirejs, {
-          baseUrl: 'public/src/js',
+          baseUrl: 'app/public/src/js',
           name: 'bootstrap',
           optimize: 'uglify2',
-          out: 'public/build/js/build.js',
+          out: 'app/public/build/js/build.js',
           useStrict: false,
           findNestedDependencies: true
         })
@@ -104,8 +107,8 @@ module.exports = function(grunt) {
       files: [
         '*.js',
         '*.json',
-        'public/src/js/**/*.js',
-        'public/tests/**/*.js',
+        'app/public/src/js/**/*.js',
+        'app/public/tests/**/*.js',
         'config/**/*.json',
         'controllers/**/*.js',
         'lib/**/*.js',

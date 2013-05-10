@@ -1,4 +1,4 @@
 node_modules
-public/src/components
-public/build
+app/public/src/components
+app/public/build
 .sass-cache
