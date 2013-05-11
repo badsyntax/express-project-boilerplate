@@ -7,7 +7,6 @@ define([
   'use strict';
 
   function AboutController() {
-    console.log('About Controller');
     this.initViewModels();
   }
 

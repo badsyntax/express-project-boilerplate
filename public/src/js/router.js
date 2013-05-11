@@ -2,10 +2,10 @@ define([
   'jquery',
   'util/events',
   'director',
-  // Be sure to require all controllers here
+  'controllers/common',
   'controllers/home',
   'controllers/about'
-], function($, Events, Director, HomeController, AboutController) {
+], function($, Events, Director, CommonController, HomeController, AboutController) {
 
   'use strict';
 
@@ -14,11 +14,6 @@ define([
   function init() {
     createRouter();
     createControllers();
-
-    // FIXME: Set the default route to home
-    if (!router.getRoute()) {
-      router.setRoute('');
-    }
   }
 
   function createRouter() {
@@ -31,6 +26,7 @@ define([
   }
 
   function createControllers() {
+    new CommonController(router);
     new HomeController(router);
     new AboutController(router);
   }
