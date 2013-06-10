@@ -1,0 +1,11 @@
+/* line 1, ../scss/_base.scss */
+body {
+  background: #FFF;
+}
+
+/* Example module file */
+/* line 3, ../scss/modules/_example.scss */
+.example-module {
+  font-size: 20px;
+  color: black;
+}

@@ -13,8 +13,8 @@ app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public', 'build')));
+app.use(express.static(path.join(__dirname, 'app', 'public')));
+app.use(express.static(path.join(__dirname, 'app', 'public', 'build')));
 app.use(app.router);
 
 // Development only

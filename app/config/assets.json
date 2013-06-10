@@ -6,28 +6,7 @@
     "css": [
       "/public/src/components/bootstrap/docs/assets/css/bootstrap.css",
       "/public/src/css/styles.css"
-    ],
-    "requirejs": {
-      "baseUrl": "/src/js",
-      "paths": {
-        "jquery": "../components/jquery/jquery",
-        "knockout": "../components/knockout/build/output/knockout-latest",
-        "knockout-mapping": "../components/knockout-mapping/build/output/knockout.mapping-latest",
-        "director": "../components/director/build/director",
-        "globalize": "../components/globalize/lib/globalize",
-        "lodash": "../components/lodash/lodash"
-      },
-      "shim": {
-        "globalize": {
-          "deps": ["jquery"],
-          "exports": "Globalize"
-        },
-        "director": {
-          "deps": ["jquery"],
-          "exports": "Router"
-        }
-      }
-    }
+    ]
   },
   "production": {
     "scripts": [

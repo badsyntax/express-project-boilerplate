@@ -1,9 +1,11 @@
-{{#each scripts}}
-  <script src="{{this}}"></script>
-{{/each}}
-{{#if development}}
+{{#unless development}}
+  {{#each scripts}}
+    <script src="{{this}}"></script>
+  {{/each}}
   <script>
-    requirejs.config({{{requireConfig}}});
-    require(['app']);
-  </script>
+{{/unless}}
+{{#if development}}
+  {{#each scripts}}
+    <script data-main="/src/js/config" src="{{this}}"></script>
+  {{/each}}
 {{/if}}

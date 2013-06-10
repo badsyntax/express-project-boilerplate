@@ -10,8 +10,7 @@
     "hbs": "2.1",
     "q": "0.9",
     "lodash": "~1.2.1",
-    "underscore.string": "2.3",
-    "mongoose": "3.6.8"
+    "underscore.string": "2.3"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

@@ -1,41 +1,15 @@
-define([
-  'jquery',
-  'util/events',
-  'director',
-  'controllers/common',
-  'controllers/home',
-  'controllers/about'
-], function($, Events, Director, CommonController, HomeController, AboutController) {
+define(["app"], function(app) {
 
-  'use strict';
+  // Defining the application router, you can attach sub routers here.
+  var Router = Backbone.Router.extend({
+    routes: {
+      "": "index"
+    },
 
-  var router;
+    index: function() {
+      alert('index');
+    }
+  });
 
-  function init() {
-    createRouter();
-    createControllers();
-  }
-
-  function createRouter() {
-    router = new Director()
-    .configure({
-      delimiter: '/',
-      before: beforeRoute
-    })
-    .init();
-  }
-
-  function createControllers() {
-    new CommonController(router);
-    new HomeController(router);
-    new AboutController(router);
-  }
-
-  function beforeRoute() {
-    Events.emit('route.before');
-  }
-
-  return {
-    init: init
-  };
+  return Router;
 });

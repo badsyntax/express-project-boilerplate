@@ -13,8 +13,8 @@ module.exports = function(grunt) {
     compass: {
       dev: {
         options: {
-          sassDir: 'app/public/src/scss',
-          cssDir: 'app/public/src/css'
+          sassDir: 'public/src/scss',
+          cssDir: 'public/src/css'
         }
       }
     },
@@ -26,9 +26,9 @@ module.exports = function(grunt) {
         'routes/**/*.js',
         'models/**/*.js',
         'tests/specs/**/*.js',
-        'app/public/tests/specs/**/*.js',
+        'public/tests/specs/**/*.js',
         'Gruntfile.js',
-        'app/public/src/js/**/*.js'
+        'public/src/js/**/*.js'
       ],
       options: {
         globals: {
@@ -51,25 +51,25 @@ module.exports = function(grunt) {
       src: '../' + assets.development.scripts,
       options: {
         specs: [
-          'app/public/tests/specs/**/*.js'
+          'public/tests/specs/**/*.js'
         ],
         template: require('grunt-template-jasmine-requirejs'),
         templateOptions: {
           requireConfig: {
-            baseUrl: 'app/public/src/js'
+            baseUrl: 'public/src/js'
           }
         }
       }
     },
     watch: {
       scss: {
-        files: ['app/public/src/scss/**/*.scss'],
+        files: ['public/src/scss/**/*.scss'],
         tasks: ['compass']
       }
     },
     'sass-convert': {
       files: {
-        src: ['app/public/src/scss/**/*.scss']
+        src: ['public/src/scss/**/*.scss']
       },
       options: {
         indent: 2
@@ -78,10 +78,10 @@ module.exports = function(grunt) {
     requirejs: {
       compile: {
         options: _.merge(assets.development.requirejs, {
-          baseUrl: 'app/public/src/js',
+          baseUrl: 'public/src/js',
           name: 'bootstrap',
           optimize: 'uglify2',
-          out: 'app/public/build/js/build.js',
+          out: 'public/build/js/build.js',
           useStrict: false,
           findNestedDependencies: true
         })
@@ -107,8 +107,8 @@ module.exports = function(grunt) {
       files: [
         '*.js',
         '*.json',
-        'app/public/src/js/**/*.js',
-        'app/public/tests/**/*.js',
+        'public/src/js/**/*.js',
+        'public/tests/**/*.js',
         'config/**/*.json',
         'controllers/**/*.js',
         'lib/**/*.js',
