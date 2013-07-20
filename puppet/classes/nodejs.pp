@@ -7,7 +7,7 @@ class nodejs {
     require => Exec['apt-update'],
   }
 
-  # Add the chri-lead/node.js ppa repository so we can install 
+  # Add the chri-lead/node.js ppa repository so we can install
   # the latest version of nodejs.
   exec { 'apt-repository-nodejs':
     command => '/usr/bin/add-apt-repository ppa:chris-lea/node.js',

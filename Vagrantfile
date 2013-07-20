@@ -9,6 +9,11 @@ Vagrant.configure("2") do |config|
 
   config.vm.synced_folder "./", "/var/www", :extra => "dmode=755,fmode=644"
 
+  # Enable symlinks for the synced folder
+  config.vm.provider "virtualbox" do |v|
+    v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant-root", "1"]
+  end
+
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "puppet"
     puppet.manifest_file  = "init.pp"
