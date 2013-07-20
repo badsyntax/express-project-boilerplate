@@ -1,4 +1,5 @@
-node_modules
-app/public/src/components
-app/public/build
-.sass-cache
+/node_modules
+/app/public/src/components
+/app/public/build
+/.sass-cache
+/.vagrant
