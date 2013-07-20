@@ -4,10 +4,10 @@ class npm {
   # as the virutalbox synced folders don't support symlinks by default.
 
   # Ensure the bower npm package is installed.
-  exec { 'bower':
-    command  => '/usr/bin/npm install -g bower',
-    require => Package['nodejs']
-  }
+  # exec { 'bower':
+  #   command  => '/usr/bin/npm install -g bower',
+  #   require => Package['nodejs']
+  # }
 
   # Ensure the nodemon npm package is installed.
   exec { 'nodemon':

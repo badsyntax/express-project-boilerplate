@@ -7,7 +7,7 @@ class init {
   }
 
   # Install system packages
-  include git
+  # include git
   include nodejs
   include npm
   include ruby

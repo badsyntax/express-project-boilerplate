@@ -3,3 +3,4 @@
 /app/public/build
 /.sass-cache
 /.vagrant
+/.grunt
