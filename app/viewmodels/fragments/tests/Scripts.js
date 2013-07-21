@@ -1,5 +1,5 @@
 var _ = require('lodash');
-var ViewModel = require('../../../../lib/ViewModel');
+var ViewModel = require('../../../lib/ViewModel');
 var assets = require('../../../config/assets.json');
 
 function ScriptsViewModel() {

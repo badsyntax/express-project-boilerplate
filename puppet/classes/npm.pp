@@ -1,8 +1,5 @@
 class npm {
 
-  # We're using the --no-bin-links option to prevent symlinks from being created
-  # as the virutalbox synced folders don't support symlinks by default.
-
   # Ensure the bower npm package is installed.
   # exec { 'bower':
   #   command  => '/usr/bin/npm install -g bower',

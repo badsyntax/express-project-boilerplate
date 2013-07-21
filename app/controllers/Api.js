@@ -1,4 +1,4 @@
-var ControllerREST = require('../../lib/Controller/ControllerREST');
+var ControllerREST = require('../lib/Controller/ControllerREST');
 
 function ControllerAPI() {
   ControllerREST.apply(this, arguments);

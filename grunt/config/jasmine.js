@@ -6,12 +6,12 @@ module.exports = function(grunt) {
       src: '../' + assets.development.scripts,
       options: {
         specs: [
-          'public/tests/specs/**/*.js'
+          'app/public/tests/specs/**/*.js'
         ],
         template: require('grunt-template-jasmine-requirejs'),
         templateOptions: {
           requireConfig: {
-            baseUrl: 'public/src/js'
+            baseUrl: 'app/public/src/js'
           }
         }
       }

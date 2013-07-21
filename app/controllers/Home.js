@@ -1,5 +1,5 @@
-var ControllerLayout = require('../../lib/Controller/ControllerLayout');
-var ViewModel = require('../../lib/ViewModel');
+var ControllerLayout = require('../lib/Controller/ControllerLayout');
+var ViewModel = require('../lib/ViewModel');
 
 function ControllerHome() {
   ControllerLayout.apply(this, arguments);

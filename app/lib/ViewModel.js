@@ -19,7 +19,7 @@ ViewModel.factory = function(controller, viewPath, data) {
 
   // Load the ViewModel
   var _ViewModel = require(
-    path.join(__dirname, '..', 'app', 'viewmodels', segments.join('/')
+    path.join(__dirname, '..', 'viewmodels', segments.join('/')
   ));
 
   // Return a new instance of the ViewModel

@@ -5,14 +5,4 @@ module.exports = exports = [
     'to': '/uri/2'
   }
   */
-
-
-
-
-
-
-
-
-
-
 ];

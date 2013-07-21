@@ -7,8 +7,8 @@ _.str = require('underscore.string');
 var Router = function(app) {
 
   this.app = app;
-  this.routes = require('../app/routes');
-  this.redirects = require('../app/routes/redirects');
+  this.routes = require('../routes');
+  this.redirects = require('../routes/redirects');
 
   this.getControllers().then(function(controllers) {
     this.controllers = controllers;
@@ -37,7 +37,7 @@ Router.prototype.getControllers = function() {
 
    var deferred = q.defer();
 
-  fs.readdir(path.join(__dirname, '..', 'app', 'controllers'), function(err, controllers) {
+  fs.readdir(path.join(__dirname, '..', 'controllers'), function(err, controllers) {
     if (err) {
       deferred.reject(err);
     } else {
@@ -107,7 +107,7 @@ Router.prototype.routeToController = function(route, req, res) {
   }
 
   // Create the controller instance
-  var Controller = require(path.join(__dirname, '..', 'app', 'controllers', controller));
+  var Controller = require(path.join(__dirname, '..', 'controllers', controller));
   new Controller(this.app, req, res, action);
 };
 

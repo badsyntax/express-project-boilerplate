@@ -1,8 +1,5 @@
 class setup {
 
-  # We're using the --no-bin-links option to prevent symlinks from being created
-  # as the virutalbox synced folders don't support symlinks by default.
-
   # Ensure all project-specific npm packages are installed.
   exec { 'install-project-npm':
       command   => '/usr/bin/npm install',
