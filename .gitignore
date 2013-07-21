@@ -1,6 +1,7 @@
 /node_modules
 /app/public/src/components
 /app/public/build
+/app/public/src/css
 /.sass-cache
 /.vagrant
 /.grunt

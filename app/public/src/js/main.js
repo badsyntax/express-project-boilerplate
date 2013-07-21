@@ -1,9 +1,3 @@
-require(['app', 'router'], function (app, Router) {
-
-  app.router = new Router();
-
-  Backbone.history.start({
-    pushState: true,
-    root: app.root
-  });
+require(['module', 'app'], function (app) {
+  app.init(module.config());
 });

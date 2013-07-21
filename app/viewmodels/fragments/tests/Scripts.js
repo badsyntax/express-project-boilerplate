@@ -24,7 +24,7 @@ ScriptsViewModel.prototype.getScripts = function() {
 
 ScriptsViewModel.prototype.getRequireConfig = function() {
   return JSON.stringify(_.merge(
-    assets['development'].requirejs, {
+    assets.development.requirejs, {
       config: {
         bootstrap: {
           culture: 'en-GB'

@@ -2,7 +2,6 @@ var _ = require('lodash');
 var ViewModel = require('../../../lib/ViewModel');
 var assets = require('../../config/assets.json');
 
-
 function ScriptsViewModel() {
 
   ViewModel.apply(this, arguments);
@@ -25,7 +24,7 @@ ScriptsViewModel.prototype.getScripts = function() {
 
 ScriptsViewModel.prototype.getRequireConfig = function() {
   return JSON.stringify(_.merge(
-    assets['development'].requirejs, {
+    assets.development.requirejs, {
       config: {
         bootstrap: {
           culture: 'en-GB'
