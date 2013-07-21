@@ -13,4 +13,4 @@ function HomeViewModel() {
 
 require('util').inherits(HomeViewModel, PageViewModel);
 
-module.exports = exports = HomeViewModel;
+module.exports = HomeViewModel;

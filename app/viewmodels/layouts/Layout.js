@@ -25,4 +25,4 @@ LayoutViewModel.prototype.getConfig = function() {
 
 };
 
-module.exports = exports = LayoutViewModel;
+module.exports = LayoutViewModel;

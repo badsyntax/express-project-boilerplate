@@ -21,4 +21,4 @@ ControllerHome.prototype.actionIndex = function() {
   });
 };
 
-module.exports = exports = ControllerHome;
+module.exports = ControllerHome;

@@ -13,4 +13,4 @@ function PageViewModel() {
 
 require('util').inherits(PageViewModel, ViewModel);
 
-module.exports = exports = PageViewModel;
+module.exports = PageViewModel;

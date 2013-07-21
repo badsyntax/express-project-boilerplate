@@ -111,4 +111,4 @@ Router.prototype.routeToController = function(route, req, res) {
   new Controller(this.app, req, res, action);
 };
 
-module.exports = exports = Router;
+module.exports = Router;

@@ -95,4 +95,4 @@ View.prototype.getPromises = function() {
   };
 };
 
-module.exports = exports = View;
+module.exports = View;

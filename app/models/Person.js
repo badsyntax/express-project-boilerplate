@@ -9,4 +9,4 @@ var PersonSchema = mongoose.Schema({
 
 var PersonModel = mongoose.model('Person', PersonSchema);
 
-module.exports = exports = PersonModel;
+module.exports = PersonModel;

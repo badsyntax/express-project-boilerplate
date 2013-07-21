@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.network :forwarded_port, host: 3333, guest: 3000
-  config.vm.synced_folder "./", "/var/www", :extra => "dmode=775,fmode=644"
+  config.vm.synced_folder "./", "/var/www", :extra => "dmode=777,fmode=644"
 
   config.vm.define :dev do |dev|
     dev.vm.provision :puppet do |puppet|

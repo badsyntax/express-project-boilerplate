@@ -6,4 +6,4 @@ function TestsViewModel() {
 
 require('util').inherits(TestsViewModel, PageViewModel);
 
-module.exports = exports = TestsViewModel;
+module.exports = TestsViewModel;

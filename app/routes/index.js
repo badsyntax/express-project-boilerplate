@@ -1,4 +1,4 @@
-module.exports = exports = [{
+module.exports = [{
     uri: '/admin/:controller?/:action?/:id?',
     controller: 'home',
     directory: 'admin'

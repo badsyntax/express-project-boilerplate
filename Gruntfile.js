@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     compass: require('./grunt/config/compass')(grunt),
     jshint: require('./grunt/config/jshint')(grunt),
     jasmine_node: require('./grunt/config/jasmine_node')(grunt),
-    jasmine: require('./grunt/config/jasmine')(grunt),
+    jasmine:  require('./grunt/config/jasmine')(grunt),
     watch: require('./grunt/config/watch')(grunt),
     requirejs: require('./grunt/config/requirejs')(grunt)
   });

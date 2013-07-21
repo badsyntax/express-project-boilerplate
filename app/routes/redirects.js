@@ -1,4 +1,4 @@
-module.exports = exports = [
+module.exports = [
   /*
   {
     'from': '/uri/1',

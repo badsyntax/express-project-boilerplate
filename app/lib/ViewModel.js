@@ -19,8 +19,8 @@ ViewModel.factory = function(controller, viewPath, data) {
 
   // Load the ViewModel
   var _ViewModel = require(
-    path.join(__dirname, '..', 'viewmodels', segments.join('/')
-  ));
+    path.join(__dirname, '..', 'viewmodels', segments.join('/'))
+  );
 
   // Return a new instance of the ViewModel
   return new _ViewModel(controller, viewPath, data);
@@ -50,4 +50,4 @@ ViewModel.prototype.render = function() {
   return this.view.render();
 };
 
-module.exports = exports = ViewModel;
+module.exports = ViewModel;
