@@ -39,27 +39,19 @@ View.prototype.getData = function(key) {
   return this.data;
 };
 
-View.prototype.renderHtml = function(html, callback) {
+View.prototype.compileTemplate = function(template, callback) {
 
   // Merge the global and view data
   var data = _.merge({}, View.globalData, this.getData());
 
-  return hbs.compile(html)(data);
+  return hbs.compile(template)(data);
 };
 
 View.prototype.render = function() {
-  var html = fs.readFileSync(path.join('app', 'views', this.path + '.hbs'), 'utf8');
-  return this.compile().then(function() {
-    return this.renderHtml(html);
+  var template = fs.readFileSync(path.join('app', 'views', this.path + '.hbs'), 'utf8');
+  return this.resolvePromises().then(function() {
+    return this.compileTemplate(template);
   }.bind(this));
-};
-
-View.prototype.compile = function() {
-  return this.resolveDependencies();
-};
-
-View.prototype.resolveDependencies = function() {
-  return this.resolvePromises();
 };
 
 View.prototype.resolvePromises = function() {
@@ -67,7 +59,7 @@ View.prototype.resolvePromises = function() {
   var data = {};
   var promises = this.getPromises();
 
-  return q.allResolved(promises.objects).spread(function() {
+  return q.allSettled(promises).spread(function() {
 
     Array.prototype.slice.call(arguments).forEach(function(output, i) {
       data[promises.keys[i]] = output;
@@ -81,6 +73,7 @@ View.prototype.resolvePromises = function() {
 View.prototype.getPromises = function() {
 
   var data = this.getData();
+
   var promises = Object.keys(data).filter(function(prop) {
     return (typeof data[prop] === 'object' && q.isPromise(data[prop]));
   });
