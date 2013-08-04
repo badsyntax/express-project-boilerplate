@@ -9,6 +9,7 @@
   "dependencies": {
     "jquery": "~2.0.0",
     "requirejs": "~2.1.6",
-    "lodash": "~1.2.1"
+    "lodash": "~1.2.1",
+    "foundation": "~4.3.1"
   }
 }
