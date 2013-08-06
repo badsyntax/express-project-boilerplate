@@ -4,12 +4,7 @@ module.exports = function(grunt) {
   grunt.initConfig(require('./grunt/config')(grunt));
 
   // Load the npm tasks
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-contrib-jasmine');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-requirejs');
-  grunt.loadNpmTasks('grunt-jasmine-node');
+  require('matchdep').filterDev('grunt-!(template-jasmine-requirejs)').forEach(grunt.loadNpmTasks);
 
   // Load our custom tasks
   grunt.loadTasks('./grunt/tasks');
