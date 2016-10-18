@@ -15,7 +15,7 @@ This project uses the following technologies:
 * [grunt](http://gruntjs.com/)
 * [requirejs](http://requirejs.org/)
 * [bower](http://bower.io/)
-* [jasmine](http://pivotal.github.io/jasmine/)
+* [jasmine](https://jasmine.github.io/)
 * [Q](http://documentup.com/kriskowal/q)
 * [uglifyjs](https://github.com/mishoo/UglifyJS)
 * [handlebars](http://handlebarsjs.com/)
